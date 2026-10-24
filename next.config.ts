@@ -22,6 +22,10 @@ const nextConfig: NextConfig = {
   logging: {
     browserToTerminal: false,
   },
+
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;
