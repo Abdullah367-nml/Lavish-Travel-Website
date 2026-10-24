@@ -134,9 +134,9 @@ export default function FaqPage() {
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <a href="tel:+27000000000">
+              <a href="tel:+27624015042">
                 <Phone className="mr-2 size-4 text-accent" />
-                Call +27 (0) 00 000 0000
+                Call +27 62 401 5042
               </a>
             </Button>
           </div>

@@ -250,7 +250,7 @@ export default async function TransferRoutePage({ params }: Props) {
                       </Link>
                     </Button>
                     <Button asChild variant="outline">
-                      <a href="tel:+27000000000">
+                      <a href="tel:+27624015042">
                         <Phone aria-hidden />
                         Call to book
                       </a>

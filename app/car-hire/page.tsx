@@ -169,7 +169,7 @@ export default async function CarHirePage() {
             <Link href="/enquire?service=car-hire">Get a quote</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="tel:+27000000000">Call us</a>
+            <a href="tel:+27624015042">Call us</a>
           </Button>
         </div>
       </div>

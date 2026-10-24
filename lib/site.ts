@@ -21,11 +21,10 @@ export const site = {
     "Luxury airport transfers, chauffeur hire, self-drive car rental and tailored tour packages across South Africa.",
 
   // --- Contact -------------------------------------------------------------
-  // TODO: replace with the real switchboard and WhatsApp numbers.
-  telephone: "+27 00 000 0000",
-  telephoneHref: "tel:+27000000000",
-  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "27000000000",
-  email: "bookings@lavishtravelstours.co.za",
+  telephone: "+27 62 401 5042",
+  telephoneHref: "tel:+27624015042",
+  whatsapp: process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "27624015042",
+  email: "ilavishtravels@gmail.com",
 
   // --- Address (ECTA s.43 requires a physical address) ---------------------
   // TODO: replace with the registered physical address.

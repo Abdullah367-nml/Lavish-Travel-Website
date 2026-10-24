@@ -320,7 +320,7 @@ export function EnquiryForm() {
               <Link href="/tours">Browse tours</Link>
             </Button>
             <Button asChild variant="outline">
-              <a href="tel:+27000000000">Call us</a>
+              <a href="tel:+27624015042">Call us</a>
             </Button>
           </div>
         </CardBody>

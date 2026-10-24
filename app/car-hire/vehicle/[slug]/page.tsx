@@ -197,7 +197,7 @@ export default async function VehiclePage({ params }: Props) {
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <a href="tel:+27000000000">
+                <a href="tel:+27624015042">
                   <Phone aria-hidden />
                   Call us
                 </a>

@@ -388,7 +388,7 @@ export default async function TourDetailPage({ params }: TourPageProps) {
                       </a>
                     </Button>
                     <Button asChild variant="outline">
-                      <a href="tel:+27000000000">
+                      <a href="tel:+27624015042">
                         <Phone aria-hidden className="mr-2 size-4 text-accent" />
                         Call Our Concierge
                       </a>

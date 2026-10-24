@@ -161,7 +161,7 @@ export default async function ChauffeurPage() {
             <Link href="/enquire?service=chauffeur">Get a quote</Link>
           </Button>
           <Button asChild variant="outline" size="lg">
-            <a href="tel:+27000000000">Call us</a>
+            <a href="tel:+27624015042">Call us</a>
           </Button>
         </div>
       </div>

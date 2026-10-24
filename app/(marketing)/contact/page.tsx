@@ -77,7 +77,7 @@ export default function ContactPage() {
             <div className="mt-8">
               <Button asChild className="w-full">
                 <a
-                  href="https://wa.me/27000000000?text=Hi%20Lavish%20Travels,%20I%20would%20like%20to%20enquire%20about%20a%20trip"
+                  href="https://wa.me/27624015042?text=Hi%20Lavish%20Travels,%20I%20would%20like%20to%20enquire%20about%20a%20trip"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -103,9 +103,9 @@ export default function ContactPage() {
             </div>
             <div className="mt-8">
               <Button asChild variant="outline" className="w-full border-accent/40 hover:bg-accent/10">
-                <a href="tel:+27000000000">
+                <a href="tel:+27624015042">
                   <Phone className="mr-2 size-4 text-accent" />
-                  +27 (0) 00 000 0000
+                  +27 62 401 5042
                 </a>
               </Button>
             </div>
@@ -126,9 +126,9 @@ export default function ContactPage() {
             </div>
             <div className="mt-8">
               <Button asChild variant="outline" className="w-full border-border hover:bg-white/5">
-                <a href="mailto:info@lavishtravels.co.za">
+                <a href="mailto:ilavishtravels@gmail.com">
                   <Mail className="mr-2 size-4 text-accent" />
-                  info@lavishtravels.co.za
+                  ilavishtravels@gmail.com
                 </a>
               </Button>
             </div>

@@ -76,7 +76,7 @@ export function FinalCta() {
 
           <Button asChild variant="outline" size="lg" className="border-white/20 hover:border-[#25D366] hover:text-[#25D366]">
             <a
-              href="https://wa.me/27000000000?text=Hi%20Lavish%20Travels%20%26%20Tours%2C%20I%20would%20like%20to%20enquire%20about%20a%20private%20tour."
+              href="https://wa.me/27624015042?text=Hi%20Lavish%20Travels%20%26%20Tours%2C%20I%20would%20like%20to%20enquire%20about%20a%20private%20tour."
               target="_blank"
               rel="noopener noreferrer"
             >

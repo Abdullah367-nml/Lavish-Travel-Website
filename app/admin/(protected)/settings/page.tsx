@@ -113,7 +113,7 @@ export default async function AdminSettingsPage() {
                 Inquiries &amp; Bookings Email
               </label>
               <p className="mt-1 text-body-sm text-foreground">
-                bookings@lavishtravels.co.za
+                ilavishtravels@gmail.com
               </p>
             </div>
           </div>

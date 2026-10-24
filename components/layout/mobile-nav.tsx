@@ -76,7 +76,7 @@ export function MobileNav() {
             </Button>
             <Button asChild variant="outline" size="lg" className="border-border hover:border-[#25D366] hover:text-[#25D366]">
               <a
-                href="https://wa.me/27000000000?text=Hi%20Lavish%20Travels%20%26%20Tours%2C%20I%20would%20like%20to%20enquire%20about%20a%20tour."
+                href="https://wa.me/27624015042?text=Hi%20Lavish%20Travels%20%26%20Tours%2C%20I%20would%20like%20to%20enquire%20about%20a%20tour."
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setOpen(false)}
@@ -86,8 +86,8 @@ export function MobileNav() {
               </a>
             </Button>
             <Button asChild variant="ghost" size="lg">
-              <a href="tel:+27000000000" onClick={() => setOpen(false)}>
-                Call: +27 (0)00 000 0000
+              <a href="tel:+27624015042" onClick={() => setOpen(false)}>
+                Call: +27 62 401 5042
               </a>
             </Button>
           </div>

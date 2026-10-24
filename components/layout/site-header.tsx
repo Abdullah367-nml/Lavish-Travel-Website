@@ -34,7 +34,7 @@ export function SiteHeader() {
         <div className="hidden items-center gap-3 md:flex">
           <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
             <a
-              href="https://wa.me/27000000000?text=Hi%20Lavish%20Travels%20%26%20Tours%2C%20I%20would%20like%20to%20enquire%20about%20a%20private%20tour."
+              href="https://wa.me/27624015042?text=Hi%20Lavish%20Travels%20%26%20Tours%2C%20I%20would%20like%20to%20enquire%20about%20a%20private%20tour."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5"
