@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <defs>
+    <!-- Gold Metallic Gradients -->
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE082" />
+      <stop offset="30%" stop-color="#FFB300" />
+      <stop offset="70%" stop-color="#FF8F00" />
+      <stop offset="100%" stop-color="#D77200" />
+    </linearGradient>
+
+    <linearGradient id="africanSunset" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FF9500" stop-opacity="0.9" />
+      <stop offset="45%" stop-color="#E65100" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#120c08" stop-opacity="0.1" />
+    </linearGradient>
+
+    <radialGradient id="sunGlow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#FFE57F" stop-opacity="0.9" />
+      <stop offset="35%" stop-color="#FF9100" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#FF6D00" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4a301d" />
+      <stop offset="100%" stop-color="#18110b" />
+    </linearGradient>
+
+    <filter id="badgeGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Deep backdrop circular crest -->
+  <circle cx="60" cy="60" r="54" fill="#0c0a08" />
+
+  <!-- Outer Double Luxury Ring -->
+  <circle cx="60" cy="60" r="55" stroke="url(#goldRing)" stroke-width="2.5" />
+  <circle cx="60" cy="60" r="50" stroke="url(#goldRing)" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.75" />
+
+  <!-- Sky & African Sun Glow -->
+  <circle cx="60" cy="60" r="48" fill="url(#africanSunset)" />
+  <circle cx="60" cy="45" r="24" fill="url(#sunGlow)" />
+
+  <!-- Distant Birds flying across the African sky -->
+  <path d="M38 32 Q41 30 44 33 Q47 30 50 32 Q47 34 44 32 Q41 34 38 32 Z" fill="#FFE082" opacity="0.85" />
+  <path d="M48 27 Q50 25.5 52 27.5 Q54 25.5 56 27 Q54 28.5 52 27 Q50 28.5 48 27 Z" fill="#FFE082" opacity="0.75" />
+  <path d="M68 31 Q70 29.5 72 31.5 Q74 29.5 76 31 Q74 32.5 72 31 Q70 32.5 68 31 Z" fill="#FFE082" opacity="0.65" />
+
+  <!-- Table Mountain & Drakensberg silhouette on the horizon -->
+  <!-- Flat top of Table Mountain on left, dropping to canyon and Drakensberg ridges on right -->
+  <path d="M12 68 
+           L22 55 
+           L44 55 
+           L49 59 
+           L56 57 
+           L68 51 
+           L78 56 
+           L88 53 
+           L108 68 
+           Z" fill="url(#mountainGrad)" opacity="0.95" />
+
+  <!-- Savanna Ground Base -->
+  <path d="M12 68 Q60 65 108 68 L108 108 A48 48 0 0 1 12 108 Z" fill="#0e0a07" />
+  <path d="M12 68 Q60 65 108 68" stroke="url(#goldRing)" stroke-width="1.2" opacity="0.8" />
+
+  <!-- Iconic African Umbrella Acacia Tree (Right-Center) -->
+  <g fill="#160e08" stroke="#160e08">
+    <!-- Trunk with natural safari curve -->
+    <path d="M78 68 Q79 60 76 54 Q75 50 78 46 L79.5 46 Q78 50 79 55 Q82 61 81 68 Z" fill="#FFB300" />
+    <path d="M78 51 Q73 48 70 47 Q67 46 64 47 Q70 48 77 52 Z" fill="#FFB300" />
+    <path d="M78 48 Q82 46 87 45 Q89 44 91 45 Q85 47 79 50 Z" fill="#FFB300" />
+
+    <!-- Acacia Foliage Canopy (Flattop tiered umbrellas) -->
+    <ellipse cx="66" cy="45" rx="9" ry="2.2" fill="#FFB300" />
+    <ellipse cx="78" cy="43" rx="13" ry="2.8" fill="#FFB300" />
+    <ellipse cx="89" cy="44" rx="10" ry="2.4" fill="#FFB300" />
+    <ellipse cx="78" cy="40" rx="9" ry="2.1" fill="#FFE082" />
+  </g>
+
+  <!-- Majestic African Elephant Silhouette (Left-Center) -->
+  <g fill="url(#goldRing)">
+    <!-- Body, head, trunk, ears, legs of African elephant -->
+    <path d="M33 68 
+             L33.5 63 
+             L35 63 
+             L36 65.5 
+             L38 65.5 
+             L39 63 
+             L41.5 63 
+             L41 68 
+             L43.5 68 
+             L44.5 61 
+             Q45 57 44 55 
+             Q43 53 40 53 
+             Q38 51.5 35 52 
+             Q32 52 30 54 
+             Q28 55 26.5 54 
+             Q25.5 53.5 24 55 
+             Q23 56 22 59 
+             Q21 62 21 64 
+             Q21.5 65 22.5 64 
+             Q23 62 24 60 
+             Q25 58 26 59 
+             L26 68 
+             L28.5 68 
+             L29 62 
+             L30.5 62 
+             L30.5 68 
+             Z" />
+    <!-- Curved Tusk highlight -->
+    <path d="M23.5 60 Q25 61 26 59.5" stroke="#FFF" stroke-width="0.8" fill="none" />
+    <!-- Baby elephant walking behind (sweet safari touch) -->
+    <path d="M46 68 L46.5 64.5 L48 64.5 L48.5 68 L50 68 L50.5 63.5 Q51 61.5 49.5 60 Q48 59 46.5 60 L45.5 62 L45 68 Z" opacity="0.85" />
+  </g>
+
+  <!-- Luxury Diamond Accents (North, South, East, West) -->
+  <polygon points="60,2 62,5 60,8 58,5" fill="url(#goldRing)" />
+  <polygon points="60,112 62,115 60,118 58,115" fill="url(#goldRing)" />
+  <polygon points="2,60 5,62 8,60 5,58" fill="url(#goldRing)" />
+  <polygon points="112,60 115,62 118,60 115,58" fill="url(#goldRing)" />
+</svg>
