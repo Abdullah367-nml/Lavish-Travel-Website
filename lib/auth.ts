@@ -75,6 +75,10 @@ export async function requireUser(returnTo: string): Promise<User> {
  * regardless; this just avoids the disclosure.
  */
 export async function requireAdmin(): Promise<Profile> {
+  const user = await getUser();
+  if (!user) {
+    redirect("/admin/login?next=/admin");
+  }
   const profile = await getProfile();
   if (!profile || profile.role !== "admin") notFound();
   return profile;
