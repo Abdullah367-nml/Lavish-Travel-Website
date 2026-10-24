@@ -1,122 +1,117 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
   <defs>
-    <!-- Gold Metallic Gradients -->
-    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFE082" />
-      <stop offset="30%" stop-color="#FFB300" />
-      <stop offset="70%" stop-color="#FF8F00" />
-      <stop offset="100%" stop-color="#D77200" />
+    <!-- 24K Luxury Gold Gradients -->
+    <linearGradient id="richGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF2A3" />
+      <stop offset="25%" stop-color="#F2C054" />
+      <stop offset="50%" stop-color="#D49326" />
+      <stop offset="75%" stop-color="#F7D373" />
+      <stop offset="100%" stop-color="#AA6B0C" />
     </linearGradient>
 
-    <linearGradient id="africanSunset" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#FF9500" stop-opacity="0.9" />
-      <stop offset="45%" stop-color="#E65100" stop-opacity="0.6" />
-      <stop offset="100%" stop-color="#120c08" stop-opacity="0.1" />
+    <linearGradient id="goldSheen" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#BF7D12" />
+      <stop offset="50%" stop-color="#FFDE82" />
+      <stop offset="100%" stop-color="#8E5202" />
     </linearGradient>
 
-    <radialGradient id="sunGlow" cx="50%" cy="40%" r="55%">
-      <stop offset="0%" stop-color="#FFE57F" stop-opacity="0.9" />
-      <stop offset="35%" stop-color="#FF9100" stop-opacity="0.5" />
-      <stop offset="100%" stop-color="#FF6D00" stop-opacity="0" />
+    <radialGradient id="regalGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F5B027" stop-opacity="0.35" />
+      <stop offset="60%" stop-color="#E27806" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
     </radialGradient>
 
-    <linearGradient id="mountainGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#4a301d" />
-      <stop offset="100%" stop-color="#18110b" />
-    </linearGradient>
+    <!-- Deep Obsidian Onyx Backdrop -->
+    <radialGradient id="shieldOnyx" cx="50%" cy="40%" r="65%">
+      <stop offset="0%" stop-color="#1F1710" />
+      <stop offset="70%" stop-color="#0F0C09" />
+      <stop offset="100%" stop-color="#050403" />
+    </radialGradient>
 
-    <filter id="badgeGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="3" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    <filter id="royalShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.7" />
     </filter>
   </defs>
 
-  <!-- Deep backdrop circular crest -->
-  <circle cx="60" cy="60" r="54" fill="#0c0a08" />
+  <!-- Ambient Golden Glow -->
+  <circle cx="100" cy="100" r="94" fill="url(#regalGlow)" />
 
-  <!-- Outer Double Luxury Ring -->
-  <circle cx="60" cy="60" r="55" stroke="url(#goldRing)" stroke-width="2.5" />
-  <circle cx="60" cy="60" r="50" stroke="url(#goldRing)" stroke-width="0.8" stroke-dasharray="3 2" opacity="0.75" />
+  <!-- Outer Luxury Astrolabe / Compass Ring -->
+  <circle cx="100" cy="100" r="88" stroke="url(#richGold)" stroke-width="1.8" filter="url(#royalShadow)" />
+  <circle cx="100" cy="100" r="83" stroke="url(#goldSheen)" stroke-width="0.8" stroke-dasharray="3.5 2.5" opacity="0.85" />
 
-  <!-- Sky & African Sun Glow -->
-  <circle cx="60" cy="60" r="48" fill="url(#africanSunset)" />
-  <circle cx="60" cy="45" r="24" fill="url(#sunGlow)" />
+  <!-- 4 Cardinal Compass Diamonds -->
+  <polygon points="100,6 103,13 100,20 97,13" fill="url(#richGold)" />
+  <polygon points="100,194 103,187 100,180 97,187" fill="url(#richGold)" />
+  <polygon points="6,100 13,97 20,100 13,103" fill="url(#richGold)" />
+  <polygon points="194,100 187,97 180,100 187,103" fill="url(#richGold)" />
 
-  <!-- Distant Birds flying across the African sky -->
-  <path d="M38 32 Q41 30 44 33 Q47 30 50 32 Q47 34 44 32 Q41 34 38 32 Z" fill="#FFE082" opacity="0.85" />
-  <path d="M48 27 Q50 25.5 52 27.5 Q54 25.5 56 27 Q54 28.5 52 27 Q50 28.5 48 27 Z" fill="#FFE082" opacity="0.75" />
-  <path d="M68 31 Q70 29.5 72 31.5 Q74 29.5 76 31 Q74 32.5 72 31 Q70 32.5 68 31 Z" fill="#FFE082" opacity="0.65" />
+  <!-- 4 Intercardinal Minor Pips -->
+  <circle cx="37" cy="37" r="1.8" fill="#F2C054" />
+  <circle cx="163" cy="37" r="1.8" fill="#F2C054" />
+  <circle cx="37" cy="163" r="1.8" fill="#F2C054" />
+  <circle cx="163" cy="163" r="1.8" fill="#F2C054" />
 
-  <!-- Table Mountain & Drakensberg silhouette on the horizon -->
-  <!-- Flat top of Table Mountain on left, dropping to canyon and Drakensberg ridges on right -->
-  <path d="M12 68 
-           L22 55 
-           L44 55 
-           L49 59 
-           L56 57 
-           L68 51 
-           L78 56 
-           L88 53 
-           L108 68 
-           Z" fill="url(#mountainGrad)" opacity="0.95" />
+  <!-- Inner Onyx Shield Base -->
+  <circle cx="100" cy="100" r="76" fill="url(#shieldOnyx)" stroke="url(#richGold)" stroke-width="1.5" />
 
-  <!-- Savanna Ground Base -->
-  <path d="M12 68 Q60 65 108 68 L108 108 A48 48 0 0 1 12 108 Z" fill="#0e0a07" />
-  <path d="M12 68 Q60 65 108 68" stroke="url(#goldRing)" stroke-width="1.2" opacity="0.8" />
-
-  <!-- Iconic African Umbrella Acacia Tree (Right-Center) -->
-  <g fill="#160e08" stroke="#160e08">
-    <!-- Trunk with natural safari curve -->
-    <path d="M78 68 Q79 60 76 54 Q75 50 78 46 L79.5 46 Q78 50 79 55 Q82 61 81 68 Z" fill="#FFB300" />
-    <path d="M78 51 Q73 48 70 47 Q67 46 64 47 Q70 48 77 52 Z" fill="#FFB300" />
-    <path d="M78 48 Q82 46 87 45 Q89 44 91 45 Q85 47 79 50 Z" fill="#FFB300" />
-
-    <!-- Acacia Foliage Canopy (Flattop tiered umbrellas) -->
-    <ellipse cx="66" cy="45" rx="9" ry="2.2" fill="#FFB300" />
-    <ellipse cx="78" cy="43" rx="13" ry="2.8" fill="#FFB300" />
-    <ellipse cx="89" cy="44" rx="10" ry="2.4" fill="#FFB300" />
-    <ellipse cx="78" cy="40" rx="9" ry="2.1" fill="#FFE082" />
+  <!-- Cape Town Sunburst Rays behind Table Mountain -->
+  <g opacity="0.35" stroke="url(#richGold)" stroke-width="0.75">
+    <line x1="100" y1="52" x2="100" y2="40" />
+    <line x1="114" y1="55" x2="124" y2="44" />
+    <line x1="86" y1="55" x2="76" y2="44" />
+    <line x1="124" y1="64" x2="137" y2="57" />
+    <line x1="76" y1="64" x2="63" y2="57" />
+    <line x1="130" y1="78" x2="145" y2="74" />
+    <line x1="70" y1="78" x2="55" y2="74" />
   </g>
 
-  <!-- Majestic African Elephant Silhouette (Left-Center) -->
-  <g fill="url(#goldRing)">
-    <!-- Body, head, trunk, ears, legs of African elephant -->
-    <path d="M33 68 
-             L33.5 63 
-             L35 63 
-             L36 65.5 
-             L38 65.5 
-             L39 63 
-             L41.5 63 
-             L41 68 
-             L43.5 68 
-             L44.5 61 
-             Q45 57 44 55 
-             Q43 53 40 53 
-             Q38 51.5 35 52 
-             Q32 52 30 54 
-             Q28 55 26.5 54 
-             Q25.5 53.5 24 55 
-             Q23 56 22 59 
-             Q21 62 21 64 
-             Q21.5 65 22.5 64 
-             Q23 62 24 60 
-             Q25 58 26 59 
-             L26 68 
-             L28.5 68 
-             L29 62 
-             L30.5 62 
-             L30.5 68 
-             Z" />
-    <!-- Curved Tusk highlight -->
-    <path d="M23.5 60 Q25 61 26 59.5" stroke="#FFF" stroke-width="0.8" fill="none" />
-    <!-- Baby elephant walking behind (sweet safari touch) -->
-    <path d="M46 68 L46.5 64.5 L48 64.5 L48.5 68 L50 68 L50.5 63.5 Q51 61.5 49.5 60 Q48 59 46.5 60 L45.5 62 L45 68 Z" opacity="0.85" />
+  <!-- Golden Rising Sun -->
+  <circle cx="100" cy="68" r="18" fill="url(#richGold)" opacity="0.85" />
+
+  <!-- Table Mountain Iconic Silhouette (Flattop plateau with Devil's Peak & Lion's Head) -->
+  <path d="M42 98 L56 94 L68 91 L73 84 L127 84 L132 91 L144 94 L158 98 L158 106 L42 106 Z" fill="#0C0A07" stroke="url(#goldSheen)" stroke-width="1.2" stroke-linejoin="round" />
+  <!-- Table Mountain Horizontal Strata Facet Lines -->
+  <line x1="73" y1="84" x2="127" y2="84" stroke="#FFF2A3" stroke-width="1.5" opacity="0.9" />
+  <line x1="68" y1="91" x2="132" y2="91" stroke="#F2C054" stroke-width="0.8" opacity="0.5" />
+
+  <!-- Regal African Safari Lion (Centerpiece Crest Motif) -->
+  <!-- Majestic sculpted Lion Profile & Mane in 24k Gold -->
+  <g id="lion-crest" fill="url(#richGold)" stroke="#231707" stroke-width="0.4">
+    <!-- Mane Tufts -->
+    <path d="M82 118 C80 110, 84 103, 90 98 C93 103, 93 108, 91 113 Z" />
+    <path d="M118 118 C120 110, 116 103, 110 98 C107 103, 107 108, 109 113 Z" />
+    <path d="M88 126 C83 120, 85 112, 91 108 C93 113, 92 119, 89 124 Z" />
+    <path d="M112 126 C117 120, 115 112, 109 108 C107 113, 108 119, 111 124 Z" />
+    
+    <!-- Lion Face Symmetry -->
+    <!-- Forehead & Crown -->
+    <path d="M93 103 L100 97 L107 103 L105 110 L95 110 Z" />
+    <!-- Cheeks & Snout -->
+    <path d="M95 110 L92 116 L97 123 L100 120 L103 123 L108 116 L105 110 Z" />
+    <!-- Nose & Whiskers pad -->
+    <polygon points="98,118 102,118 100,121" fill="#1A1208" />
+    <!-- Chin -->
+    <path d="M97 124 L100 127 L103 124 Z" />
+    <!-- Eyes -->
+    <polygon points="95,110 98,111 96,112" fill="#0C0A07" />
+    <polygon points="105,110 102,111 104,112" fill="#0C0A07" />
   </g>
 
-  <!-- Luxury Diamond Accents (North, South, East, West) -->
-  <polygon points="60,2 62,5 60,8 58,5" fill="url(#goldRing)" />
-  <polygon points="60,112 62,115 60,118 58,115" fill="url(#goldRing)" />
-  <polygon points="2,60 5,62 8,60 5,58" fill="url(#goldRing)" />
-  <polygon points="112,60 115,62 118,60 115,58" fill="url(#goldRing)" />
+  <!-- Luxury Monogram "L" Ribbon Banner Motif below lion -->
+  <path d="M60 142 C72 137, 85 135, 100 135 C115 135, 128 137, 140 142 L136 150 C125 146, 113 144, 100 144 C87 144, 75 146, 64 150 Z" fill="url(#goldSheen)" />
+
+  <!-- Five Five-Point Stars (representing 5-star premier hospitality) -->
+  <g fill="url(#richGold)" transform="translate(0, 1)">
+    <!-- Center Star -->
+    <polygon points="100,152 101.5,156 106,156 102.5,158.5 104,163 100,160 96,163 97.5,158.5 94,156 98.5,156" />
+    <!-- Left Star 1 -->
+    <polygon points="88,154 89,157.5 93,157.5 90,159.5 91,163 88,161 85,163 86,159.5 83,157.5 87,157.5" transform="scale(0.85) translate(16, 26)" />
+    <!-- Left Star 2 -->
+    <polygon points="77,157 78,160 82,160 79.5,162 80.5,165 77,163.5 73.5,165 74.5,162 72,160 76,160" transform="scale(0.7) translate(34, 50)" />
+    <!-- Right Star 1 -->
+    <polygon points="112,154 113,157.5 117,157.5 114,159.5 115,163 112,161 109,163 110,159.5 107,157.5 111,157.5" transform="scale(0.85) translate(19, 26)" />
+    <!-- Right Star 2 -->
+    <polygon points="123,157 124,160 128,160 125.5,162 126.5,165 123,163.5 119.5,165 120.5,162 118,160 122,160" transform="scale(0.7) translate(51, 50)" />
+  </g>
 </svg>
