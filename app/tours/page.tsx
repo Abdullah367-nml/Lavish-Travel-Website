@@ -103,7 +103,7 @@ export default async function ToursPage({ searchParams }: ToursPageProps) {
           <p className="mt-5 text-body-md leading-relaxed text-muted-foreground">
             Bespoke day tours around Cape Town, Table Mountain, the Cape Peninsula,
             Stellenbosch winelands, and Big Five safaris. All itineraries are privately
-            guided with flexible timings and direct booking via our 24/7 WhatsApp concierge.
+            guided with flexible timings and direct booking via WhatsApp.
           </p>
         </div>
 

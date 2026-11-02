@@ -36,7 +36,7 @@ export function FeaturedTours({ tours }: { tours: TourPackage[] }) {
             className="px-8 font-semibold shadow-md transition-transform hover:scale-105"
           >
             <Link href="/tours" className="inline-flex items-center gap-2">
-              View More Tours
+              View More
               <ArrowRight aria-hidden className="size-4" />
             </Link>
           </Button>

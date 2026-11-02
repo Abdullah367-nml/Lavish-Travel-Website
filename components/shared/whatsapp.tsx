@@ -61,12 +61,12 @@ export function WhatsAppFab() {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Chat with our travel concierge on WhatsApp"
+      aria-label="Chat on WhatsApp"
       className="group fixed bottom-6 right-6 z-40 hidden items-center gap-2.5 rounded-full bg-[#25D366] px-4 py-3 text-black shadow-[0_4px_25px_rgba(37,211,102,0.4)] transition-all duration-300 hover:scale-105 hover:bg-[#20bd5a] focus-visible:ring-2 focus-visible:ring-[#25D366] md:flex"
     >
       <MessageCircle aria-hidden className="size-5 text-black fill-black/10" />
       <span className="text-xs font-bold uppercase tracking-wider text-black">
-        Chat with Concierge
+        Chat on WhatsApp
       </span>
     </a>
   );
@@ -94,7 +94,7 @@ export function MobileActionBar() {
         className="flex min-h-[56px] items-center justify-center gap-2 bg-[#25D366] text-caption font-bold uppercase tracking-[0.16em] text-black shadow-md"
       >
         <MessageCircle aria-hidden className="size-4 text-black fill-black/10" />
-        WhatsApp Concierge
+        Chat on WhatsApp
       </a>
     </div>
   );

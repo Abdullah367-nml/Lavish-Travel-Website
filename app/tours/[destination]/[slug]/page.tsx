@@ -384,19 +384,19 @@ export default async function TourDetailPage({ params }: TourPageProps) {
                         rel="noopener noreferrer"
                       >
                         <MessageCircle aria-hidden className="mr-2 size-4 text-[#25D366]" />
-                        Chat with a Specialist
+                        Chat on WhatsApp
                       </a>
                     </Button>
                     <Button asChild variant="outline">
                       <a href="tel:+27624015042">
                         <Phone aria-hidden className="mr-2 size-4 text-accent" />
-                        Call Our Concierge
+                        Call Us Directly
                       </a>
                     </Button>
                   </div>
 
                   <p className="text-caption leading-relaxed text-muted-foreground">
-                    Custom departures, private vehicle options, and personalized itineraries are arranged directly with our dedicated travel concierge.
+                    Custom departures, private vehicle options, and personalized itineraries are arranged directly with our dedicated team on WhatsApp.
                   </p>
                 </CardBody>
               </Card>

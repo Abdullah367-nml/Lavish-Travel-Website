@@ -81,7 +81,7 @@ export function FinalCta() {
               rel="noopener noreferrer"
             >
               <MessageCircle className="mr-2 size-4 text-[#25D366]" />
-              Chat with Concierge
+              Chat on WhatsApp
             </a>
           </Button>
         </div>
