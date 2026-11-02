@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
  */
 export function Hero() {
   return (
-    <section className="relative isolate flex min-h-[620px] items-end overflow-hidden bg-background sm:min-h-[720px] lg:min-h-[820px]">
+    <section className="relative isolate flex min-h-[500px] items-end overflow-hidden bg-background sm:min-h-[560px] lg:min-h-[620px]">
       {/* Real High-Resolution African Travel Landscape */}
       <Image
         src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1920&auto=format&fit=crop&q=85"
@@ -34,7 +34,7 @@ export function Hero() {
       {/* Warm Golden Safari Sunset Radial Glow */}
       <div
         aria-hidden
-        className="animate-pulse-glow absolute -z-10 h-[500px] w-[500px] rounded-full opacity-60 blur-[100px] sm:h-[650px] sm:w-[650px]"
+        className="animate-pulse-glow absolute -z-10 h-[400px] w-[400px] rounded-full opacity-60 blur-[100px] sm:h-[550px] sm:w-[550px]"
         style={{
           right: "8%",
           top: "15%",
@@ -43,32 +43,32 @@ export function Hero() {
         }}
       />
 
-      <div className="mx-auto w-full max-w-7xl px-4 pb-16 pt-36 sm:px-6 sm:pb-20 lg:px-8 lg:pb-24">
+      <div className="mx-auto w-full max-w-7xl px-4 pb-10 pt-20 sm:px-6 sm:pb-12 sm:pt-24 lg:px-8 lg:pb-14">
         {/* Eyebrow badge */}
-        <div className="inline-flex items-center gap-2.5 rounded-full border border-accent/40 bg-black/60 px-4 py-1.5 backdrop-blur-md">
-          <Compass className="size-3.5 text-accent animate-spin-slow" />
-          <span className="text-xs font-semibold uppercase tracking-[0.25em] text-accent">
+        <div className="inline-flex items-center gap-2.5 rounded-full border border-accent/40 bg-black/60 px-3.5 py-1 backdrop-blur-md">
+          <Compass className="size-3 text-accent animate-spin-slow" />
+          <span className="text-[11px] font-semibold uppercase tracking-[0.25em] text-accent">
             South Africa &amp; Beyond
           </span>
         </div>
 
         {/* Headline */}
-        <h1 className="text-lit mt-6 max-w-4xl font-display text-[2.75rem] leading-[0.96] uppercase tracking-tight text-foreground sm:text-display-md lg:text-[4.75rem]">
+        <h1 className="text-lit mt-4 max-w-3xl font-display text-[2.25rem] leading-[0.98] uppercase tracking-tight text-foreground sm:text-[3rem] lg:text-[3.75rem]">
           Arrive the way
-          <span className="mt-2 block bg-gradient-to-r from-accent via-amber-200 to-amber-500 bg-clip-text text-transparent">
+          <span className="mt-1 block bg-gradient-to-r from-accent via-amber-200 to-amber-500 bg-clip-text text-transparent">
             you intended
           </span>
         </h1>
 
         {/* Lead text */}
-        <p className="mt-6 max-w-xl text-body-md leading-relaxed text-foreground/85 sm:text-body-lg">
+        <p className="mt-4 max-w-xl text-body-sm leading-relaxed text-foreground/85 sm:text-body-md">
           Private airport transfers, luxury chauffeured days, self-drive journeys
           and tailored safaris across South Africa, Kruger and Victoria Falls.
           Fixed pricing, vetted local drivers, and five-star private service.
         </p>
 
         {/* CTA Buttons */}
-        <div className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center">
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
           <Button asChild size="lg" className="shadow-[0_0_25px_rgba(255,149,0,0.35)]">
             <Link href="/tours">
               Explore Cape Town Tours
@@ -81,7 +81,7 @@ export function Hero() {
         </div>
 
         {/* Floating Trust Indicators */}
-        <div className="mt-14 grid max-w-3xl grid-cols-2 gap-4 border-t border-white/10 pt-8 sm:grid-cols-3">
+        <div className="mt-8 grid max-w-3xl grid-cols-2 gap-3.5 border-t border-white/10 pt-5 sm:grid-cols-3 sm:mt-10 sm:pt-6">
           <div className="flex items-center gap-3">
             <div className="flex size-10 items-center justify-center rounded-lg border border-accent/30 bg-black/50 text-accent">
               <ShieldCheck className="size-5" />

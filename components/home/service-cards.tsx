@@ -39,14 +39,14 @@ const SERVICE_IMAGES: Record<string, string> = {
 
 export function ServiceCards({ services }: { services: ServiceSummary[] }) {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
       <SectionHeading
         eyebrow="PREMIER SERVICES"
         title="Six ways we get you there"
         lead="Whether you need a chauffeur at the airport terminal or a tailored two-week safari across Southern Africa, travel in effortless style."
       />
 
-      <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-6">
         {services.map((service) => {
           const Icon = ICONS[service.icon];
           const bgImage =
@@ -57,7 +57,7 @@ export function ServiceCards({ services }: { services: ServiceSummary[] }) {
             <li key={service.slug} className="group">
               <Link
                 href={service.href}
-                className="relative flex h-full min-h-[290px] flex-col justify-end overflow-hidden rounded-xl border border-border/80 bg-zinc-950 p-6 outline-none transition-all duration-300 hover:border-accent/60 hover:shadow-[0_0_30px_rgba(255,149,0,0.22)] sm:p-7"
+                className="relative flex h-full min-h-[210px] flex-col justify-end overflow-hidden rounded-xl border border-border/80 bg-zinc-950 p-5 outline-none transition-all duration-300 hover:border-accent/60 hover:shadow-[0_0_25px_rgba(255,149,0,0.22)] sm:min-h-[230px] sm:p-6"
               >
                 {/* Real photographic background */}
                 <Image
@@ -75,29 +75,29 @@ export function ServiceCards({ services }: { services: ServiceSummary[] }) {
                 />
 
                 {/* Top Icon Badge */}
-                <div className="absolute left-6 top-6 flex size-11 items-center justify-center rounded-lg border border-accent/30 bg-black/60 text-accent backdrop-blur-md transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-black">
-                  <Icon aria-hidden className="size-5" />
+                <div className="absolute left-5 top-5 flex size-10 items-center justify-center rounded-lg border border-accent/30 bg-black/60 text-accent backdrop-blur-md transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-black">
+                  <Icon aria-hidden className="size-4.5" />
                 </div>
 
                 {/* Top Arrow */}
-                <div className="absolute right-6 top-6 flex size-9 items-center justify-center rounded-full bg-white/5 text-muted-foreground transition-all group-hover:bg-accent group-hover:text-black">
+                <div className="absolute right-5 top-5 flex size-8 items-center justify-center rounded-full bg-white/5 text-muted-foreground transition-all group-hover:bg-accent group-hover:text-black">
                   <ArrowUpRight
                     aria-hidden
-                    className="size-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                   />
                 </div>
 
                 {/* Card Text Content */}
-                <div className="relative pt-16">
+                <div className="relative pt-10">
                   <h3 className="font-display text-heading-md uppercase tracking-wide text-foreground transition-colors group-hover:text-accent">
                     {service.name}
                   </h3>
 
-                  <p className="mt-2 text-body-sm leading-relaxed text-foreground/75">
+                  <p className="mt-1.5 text-body-sm leading-relaxed text-foreground/75 line-clamp-2">
                     {service.tagline}
                   </p>
 
-                  <span className="mt-4 inline-flex items-center text-xs font-semibold uppercase tracking-wider text-accent opacity-90 group-hover:underline">
+                  <span className="mt-3 inline-flex items-center text-xs font-semibold uppercase tracking-wider text-accent opacity-90 group-hover:underline">
                     Learn More →
                   </span>
                 </div>

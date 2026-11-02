@@ -31,7 +31,7 @@ export function Testimonials({
   if (reviews.length === 0) return null;
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
       <SectionHeading
         eyebrow="IN THEIR WORDS"
         title="What guests actually said"
@@ -42,7 +42,7 @@ export function Testimonials({
         }
       />
 
-      <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-8 grid gap-5 md:grid-cols-2 lg:grid-cols-3 sm:gap-6">
         {reviews.map((review) => (
           <li key={review.id}>
             <Card className="h-full">

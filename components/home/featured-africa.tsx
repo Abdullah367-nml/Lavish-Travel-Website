@@ -56,23 +56,23 @@ const HIGHLIGHTS = [
 export function FeaturedAfrica() {
   return (
     <section className="border-t border-border bg-surface/40">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
         {/* Heading */}
-        <div className="mb-12 text-center">
+        <div className="mb-8 text-center">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-accent">
             Discover the Continent
           </p>
-          <h2 className="font-display text-3xl md:text-4xl text-foreground">
+          <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-foreground">
             Iconic African Destinations
           </h2>
-          <p className="mt-3 mx-auto max-w-xl text-sm text-foreground/60">
+          <p className="mt-2.5 mx-auto max-w-xl text-sm text-foreground/60">
             From the thundering Victoria Falls to the Big Five plains of Kruger —
             explore Africa&apos;s most celebrated places with expert local guides.
           </p>
         </div>
 
         {/* Cards */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {HIGHLIGHTS.map((dest) => (
             <Link
               key={dest.id}

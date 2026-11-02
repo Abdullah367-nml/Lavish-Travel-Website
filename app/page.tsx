@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import {
   getAggregateRating,
-  getDestinations,
   getFeaturedTours,
   getReviews,
   getServices,
@@ -14,7 +13,6 @@ import { ServiceCards } from "@/components/home/service-cards";
 import { FeaturedTours } from "@/components/home/featured-tours";
 import { TrustBand } from "@/components/home/trust-band";
 import { FleetPreview } from "@/components/home/fleet-preview";
-import { DestinationGrid } from "@/components/home/destination-grid";
 import { FinalCta } from "@/components/home/final-cta";
 import { Testimonials } from "@/components/home/testimonials";
 import { FeaturedAfrica } from "@/components/home/featured-africa";
@@ -35,12 +33,11 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [services, featuredTours, fleet, destinations, reviews, aggregate] =
+  const [services, featuredTours, fleet, reviews, aggregate] =
     await Promise.all([
       getServices(),
-      getFeaturedTours(4),
+      getFeaturedTours(3),
       getVehicles(),
-      getDestinations(),
       getReviews(3),
       getAggregateRating(),
     ]);
@@ -55,8 +52,7 @@ export default async function HomePage() {
       <FeaturedTours tours={featuredTours} />
       <TrustBand />
       <FleetPreview vehicles={fleet.slice(0, 3)} />
-      <DestinationGrid destinations={destinations.slice(0, 5)} />
-      {/* Iconic African destinations — fully static, always visible */}
+      {/* Iconic African destinations — curated highlights for international visitors */}
       <FeaturedAfrica />
       <Testimonials reviews={reviews} aggregate={aggregate} />
       <FinalCta />

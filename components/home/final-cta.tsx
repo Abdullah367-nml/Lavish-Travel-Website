@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
  */
 export function FinalCta() {
   return (
-    <section className="relative isolate overflow-hidden border-t border-border bg-black py-24 sm:py-32">
+    <section className="relative isolate overflow-hidden border-t border-border bg-black py-12 sm:py-16 lg:py-20">
       {/* Real African savanna sunset scene */}
       <Image
         src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920&auto=format&fit=crop&q=85"

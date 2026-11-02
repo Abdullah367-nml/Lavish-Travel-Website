@@ -6,7 +6,7 @@ export function FleetPreview({ vehicles }: { vehicles: Vehicle[] }) {
   if (vehicles.length === 0) return null;
 
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+    <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
       <SectionHeading
         eyebrow="THE FLEET"
         title="Executive to expedition"
@@ -15,7 +15,7 @@ export function FleetPreview({ vehicles }: { vehicles: Vehicle[] }) {
         linkLabel="Full fleet"
       />
 
-      <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {vehicles.map((vehicle) => (
           <li key={vehicle.id}>
             <VehicleCard vehicle={vehicle} />

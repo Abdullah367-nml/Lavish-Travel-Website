@@ -44,12 +44,12 @@ const PILLARS = [
 export function TrustBand() {
   return (
     <section className="border-y border-border bg-surface">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8 lg:py-14">
         <h2 className="font-display text-display-sm uppercase text-foreground">
           Why Lavish
         </h2>
 
-        <ul className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5 lg:gap-6">
+        <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
           {PILLARS.map((pillar) => (
             <li key={pillar.title} className="flex flex-col gap-3">
               <pillar.icon aria-hidden className="size-5 text-accent" />
