@@ -46,7 +46,7 @@ export default async function AdminLoginPage() {
 
         <div className="mt-8">
           <Suspense fallback={<p className="text-body-sm text-muted-foreground">Loading…</p>}>
-            <LoginForm />
+            <LoginForm defaultNext="/admin" hideRegisterLink />
           </Suspense>
         </div>
       </div>

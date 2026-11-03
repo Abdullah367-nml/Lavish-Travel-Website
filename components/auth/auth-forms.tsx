@@ -49,7 +49,7 @@ const registerSchema = z
 
 type Errors = Partial<Record<string, string>>;
 
-function useNextPath() {
+function useNextPath(fallback = "/my-bookings") {
   const params = useSearchParams();
   const next = params.get("next");
   // Only ever redirect within this site. An open redirect is a phishing
@@ -57,12 +57,18 @@ function useNextPath() {
   // freshly-authenticated user straight off-site.
   return next && next.startsWith("/") && !next.startsWith("//")
     ? next
-    : "/my-bookings";
+    : fallback;
 }
 
-export function LoginForm() {
+export function LoginForm({
+  defaultNext = "/my-bookings",
+  hideRegisterLink = false,
+}: {
+  defaultNext?: string;
+  hideRegisterLink?: boolean;
+} = {}) {
   const router = useRouter();
-  const nextPath = useNextPath();
+  const nextPath = useNextPath(defaultNext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -163,12 +169,14 @@ export function LoginForm() {
         )}
       </Button>
 
-      <p className="text-body-sm text-muted-foreground">
-        No account yet?{" "}
-        <Link href="/register" className="text-accent underline-offset-4 hover:underline">
-          Create one
-        </Link>
-      </p>
+      {!hideRegisterLink && (
+        <p className="text-body-sm text-muted-foreground">
+          No account yet?{" "}
+          <Link href="/register" className="text-accent underline-offset-4 hover:underline">
+            Create one
+          </Link>
+        </p>
+      )}
     </form>
   );
 }
