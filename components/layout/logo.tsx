@@ -3,25 +3,26 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 /**
- * World-class luxury brand mark.
- * Combines the 24K Gold African Safari & Table Mountain Crest
- * with high-kerning luxury typography.
+ * Lavish Travels & Tours — South African Springbok & Rugby Heritage Luxury Crest.
+ * Features the leaping 24K Gold Springbok antelope arching over a golden rugby ball
+ * beneath Table Mountain, set in an obsidian & Springbok-green medallion.
  */
 export function Logo({ className }: { className?: string }) {
   return (
     <Link
       href="/"
       className={cn("group flex items-center gap-3 outline-none", className)}
-      aria-label="Lavish Travels & Tours — home"
+      aria-label="Lavish Travels & Tours — South Africa"
     >
-      <div className="relative flex size-11 items-center justify-center rounded-full bg-gradient-to-br from-amber-400/30 via-black to-black p-0.5 shadow-[0_0_20px_rgba(255,179,0,0.3)] transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_28px_rgba(255,179,0,0.55)]">
+      <div className="relative flex size-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-400/40 via-[#092218] to-black p-0.5 shadow-[0_0_22px_rgba(245,176,39,0.35)] ring-1 ring-amber-400/40 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(245,176,39,0.6)] group-hover:ring-amber-300/70">
         <Image
           src="/images/logo.svg"
-          alt="Lavish Travels & Tours 24K Gold Crest"
-          width={48}
-          height={48}
+          alt="Lavish Travels & Tours — South African Springbok & Rugby Gold Crest"
+          width={52}
+          height={52}
           priority
-          className="size-10 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
+          unoptimized
+          className="size-11 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]"
         />
       </div>
 
