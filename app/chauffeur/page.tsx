@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
-import { getCities, getVehicles } from "@/lib/data";
+import { getCities, getVehicles, getReviews } from "@/lib/data";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { VehicleCard } from "@/components/shared/vehicle-card";
 import { Card, CardBody } from "@/components/ui/card";
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/shared/json-ld";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data";
 import { FaqList } from "@/components/shared/faq-list";
+import { InteractiveReviewSection } from "@/components/shared/review-form";
 
 export const metadata: Metadata = {
   title: "Luxury Chauffeur & Executive Car Hire",
@@ -41,7 +42,11 @@ const FAQS = [
 ];
 
 export default async function ChauffeurPage() {
-  const [cities, vehicles] = await Promise.all([getCities(), getVehicles()]);
+  const [cities, vehicles, reviews] = await Promise.all([
+    getCities(),
+    getVehicles(),
+    getReviews(3),
+  ]);
 
   const crumbs = [
     { label: "Home", href: "/" },
@@ -154,6 +159,18 @@ export default async function ChauffeurPage() {
           <div className="mt-6 max-w-3xl">
             <FaqList faqs={FAQS} />
           </div>
+        </section>
+
+        <section className="mt-16 border-t border-border pt-14" aria-labelledby="chauffeur-reviews">
+          <h2 id="chauffeur-reviews" className="mb-6 font-display text-display-sm uppercase text-foreground">
+            Chauffeur Service Ratings &amp; Reviews
+          </h2>
+          <InteractiveReviewSection
+            initialReviews={reviews}
+            defaultServiceOrTour="Private Chauffeur Service"
+            heading="Rate Our Chauffeur Service"
+            subheading="Share your experience with our executive chauffeurs and vehicles."
+          />
         </section>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-border pt-10 sm:flex-row">

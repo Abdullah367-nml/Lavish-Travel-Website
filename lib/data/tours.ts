@@ -983,4 +983,269 @@ export const tourPackages: TourPackage[] = [
     ],
     whatToPack: ["Passport with 6 months validity", "Light waterproof poncho for waterfall spray", "Sun protection"],
   },
+
+  // =========================================================================
+  // 🌿 GARDEN ROUTE TOURS (Same Detailed Route Format as Cape Town)
+  // =========================================================================
+  {
+    id: "p1000000-0000-4000-8000-000000000014",
+    slug: "5-day-garden-route-addo-safari",
+    title: "5-Day Garden Route & Addo Elephant Safari Tour",
+    destinationId: "d1000000-0000-4000-8000-000000000002",
+    destinationSlug: "garden-route",
+    category: "multi_day",
+    durationDays: 5,
+    groupMin: 1,
+    groupMax: 8,
+    priceFromZar: 0,
+    summary:
+      "The complete coastal and Klein Karoo journey from Cape Town along the Garden Route. Explore Route 62, Oudtshoorn's Cango Caves, Outeniqua Pass, Wilderness Map of Africa, the Knysna Heads & Lagoon, Plettenberg Bay's Robberg Peninsula, Bloukrans Bridge, Tsitsikamma's Storms River Suspension Bridges, and malaria-free Big Five safari in Addo Elephant National Park.",
+    inclusions: [
+      "Private luxury vehicle with dedicated professional chauffeur-guide throughout",
+      "Hotel pickup in Cape Town and flexible return or Gqeberha (Port Elizabeth) drop-off",
+      "Guided tour of the illuminated Cango Caves in Oudtshoorn",
+      "Scenic drive over the Outeniqua Mountain Pass & Wilderness Map of Africa viewpoint",
+      "Knysna Heads clifftop lookout & Knysna Waterfront visit",
+      "Robberg Nature Reserve coastal walk in Plettenberg Bay",
+      "Tsitsikamma National Park & Storms River Mouth Suspension Bridges walk",
+      "Full-day malaria-free game drive in Addo Elephant National Park",
+      "Chilled bottled water and on-board Wi-Fi throughout",
+    ],
+    exclusions: [
+      "Overnight accommodation (tailored 4-star or 5-star boutique lodges quoted to your preference)",
+      "Optional Bloukrans Bridge Bungy Jump or Zipline fees",
+      "Optional Knysna sunset oyster cruise",
+      "Lunches and dinners",
+      "Gratuities",
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=1200&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?w=1200&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1200&auto=format&fit=crop&q=80",
+    ],
+    difficulty: "easy",
+    isFeatured: true,
+    isPublished: true,
+    seoTitle: "5-Day Garden Route & Addo Safari Private Tour from Cape Town",
+    seoDescription:
+      "Private 5-day Garden Route tour from Cape Town covering Oudtshoorn Cango Caves, Wilderness, Knysna Heads, Plettenberg Bay, Tsitsikamma Suspension Bridges and Addo Elephant Park.",
+    departsFrom: ["Cape Town", "Stellenbosch", "George", "Knysna"],
+    itinerary: [
+      {
+        id: "i-gr5-1",
+        packageId: "p1000000-0000-4000-8000-000000000014",
+        dayNumber: 1,
+        title: "Day 1 — Cape Town via Route 62 to Oudtshoorn & Cango Caves",
+        description:
+          "Depart Cape Town along famous Route 62 — the world's longest wine route — winding through Robertson, Barrydale and the Klein Karoo. Arrive in Oudtshoorn to explore the monumental limestone chambers of the Cango Caves and visit a working Klein Karoo ostrich estate.",
+        overnightLocation: "Oudtshoorn",
+        meals: [],
+      },
+      {
+        id: "i-gr5-2",
+        packageId: "p1000000-0000-4000-8000-000000000014",
+        dayNumber: 2,
+        title: "Day 2 — Outeniqua Pass, Wilderness Map of Africa & Knysna Heads",
+        description:
+          "Cross the breathtaking Outeniqua Mountain Pass down toward the Indian Ocean coastline. Stop at the famous Map of Africa viewpoint and Dolphin Point in Wilderness before arriving in Knysna. Visit the dramatic sandstone cliffs of the Knysna Heads and enjoy an optional sunset lagoon cruise.",
+        overnightLocation: "Knysna",
+        meals: ["breakfast"],
+      },
+      {
+        id: "i-gr5-3",
+        packageId: "p1000000-0000-4000-8000-000000000014",
+        dayNumber: 3,
+        title: "Day 3 — Plettenberg Bay, Robberg Peninsula, Birds of Eden & Bloukrans",
+        description:
+          "Travel east to Plettenberg Bay for a scenic coastal walk at Robberg Nature Reserve overlooking seals and dolphins. Visit the world's largest free-flight aviary at Birds of Eden or Monkeyland in The Crags, and pause at the 216-metre Bloukrans Bridge gorge viewpoint.",
+        overnightLocation: "Tsitsikamma / Plettenberg Bay",
+        meals: ["breakfast"],
+      },
+      {
+        id: "i-gr5-4",
+        packageId: "p1000000-0000-4000-8000-000000000014",
+        dayNumber: 4,
+        title: "Day 4 — Tsitsikamma Storms River Suspension Bridges to Addo",
+        description:
+          "Spend the morning walking through ancient yellowwood forests in Tsitsikamma National Park to cross the iconic 77-metre suspension bridges over the Storms River mouth. Continue east into the Sundays River Valley bordering Addo Elephant National Park.",
+        overnightLocation: "Addo / Sundays River",
+        meals: ["breakfast"],
+      },
+      {
+        id: "i-gr5-5",
+        packageId: "p1000000-0000-4000-8000-000000000014",
+        dayNumber: 5,
+        title: "Day 5 — Addo Elephant Safari & Return / Airport Drop-Off",
+        description:
+          "Full morning game drive through malaria-free Addo Elephant National Park tracking huge herds of Cape elephants, lions, buffalo, zebra and black rhino. Conclude with drop-off at Gqeberha (Port Elizabeth) Airport or scenic coastal return to Cape Town via Mossel Bay.",
+        overnightLocation: null,
+        meals: ["breakfast"],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can this tour finish in Port Elizabeth (Gqeberha) or return to Cape Town?",
+        answer:
+          "Both options are available! Many international guests fly out of Gqeberha after Addo, while others prefer a scenic coastal return via Mossel Bay and Hermanus back to Cape Town.",
+      },
+      {
+        question: "Is the Garden Route malaria-free?",
+        answer:
+          "Yes, the entire Garden Route and Addo Elephant National Park are 100% malaria-free year-round.",
+      },
+    ],
+    whatToPack: [
+      "Comfortable walking shoes for Tsitsikamma suspension bridges and Robberg trails",
+      "Light rain/wind jacket for coastal viewpoints",
+      "Camera and binoculars for Addo elephants and marine life",
+    ],
+  },
+
+  {
+    id: "p1000000-0000-4000-8000-000000000015",
+    slug: "3-day-garden-route-oudtshoorn-highlights",
+    title: "3-Day Garden Route, Knysna & Cango Caves Loop",
+    destinationId: "d1000000-0000-4000-8000-000000000002",
+    destinationSlug: "garden-route",
+    category: "multi_day",
+    durationDays: 3,
+    groupMin: 1,
+    groupMax: 8,
+    priceFromZar: 0,
+    summary:
+      "Ideal for travellers with 3 days to spare from Cape Town. Drive inland along scenic Route 62 to Oudtshoorn's Cango Caves, descend the Outeniqua Pass to Wilderness and the Knysna Heads, walk the Storms River Suspension Bridges in Tsitsikamma, and return via Mossel Bay's Cape St. Blaize.",
+    inclusions: [
+      "Private luxury vehicle with dedicated driver-guide",
+      "Hotel pickup and drop-off in Cape Town",
+      "Scenic Route 62 mountain drive & Cango Caves guided heritage tour",
+      "Outeniqua Mountain Pass & Wilderness Map of Africa viewpoint",
+      "Knysna Heads lookout, Knysna Lagoon & Waterfront",
+      "Tsitsikamma Storms River Mouth Suspension Bridges excursion",
+      "Mossel Bay Cape St. Blaize Lighthouse & Diaz Museum stop",
+      "Bottled water and on-board Wi-Fi",
+    ],
+    exclusions: [
+      "2 nights accommodation in Oudtshoorn / Knysna (custom-quoted to 4★ or 5★ preference)",
+      "Meals and personal refreshments",
+      "Optional boat cruises or adventure activities",
+      "Gratuities",
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=1200&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&auto=format&fit=crop&q=80",
+    ],
+    difficulty: "easy",
+    isFeatured: false,
+    isPublished: true,
+    seoTitle: "3-Day Garden Route, Knysna & Cango Caves Private Tour",
+    seoDescription:
+      "3-day private Garden Route loop from Cape Town covering Route 62, Cango Caves, Wilderness, Knysna Heads, Tsitsikamma and Mossel Bay.",
+    departsFrom: ["Cape Town", "Stellenbosch", "Camps Bay"],
+    itinerary: [
+      {
+        id: "i-gr3-1",
+        packageId: "p1000000-0000-4000-8000-000000000015",
+        dayNumber: 1,
+        title: "Day 1 — Route 62, Klein Karoo & Cango Caves",
+        description:
+          "Early departure from Cape Town through the Du Toitskloof mountains and along scenic Route 62 into the Klein Karoo. Tour the spectacular Cango Caves and an ostrich safari farm in Oudtshoorn.",
+        overnightLocation: "Oudtshoorn or Knysna",
+        meals: [],
+      },
+      {
+        id: "i-gr3-2",
+        packageId: "p1000000-0000-4000-8000-000000000015",
+        dayNumber: 2,
+        title: "Day 2 — Outeniqua Pass, Wilderness, Knysna Heads & Tsitsikamma",
+        description:
+          "Descend the Outeniqua Pass to Wilderness National Park and the Map of Africa viewpoint. Visit the Knysna Heads, Plettenberg Bay coastline, Bloukrans Gorge, and walk across the Storms River Mouth suspension bridges in Tsitsikamma.",
+        overnightLocation: "Knysna",
+        meals: ["breakfast"],
+      },
+      {
+        id: "i-gr3-3",
+        packageId: "p1000000-0000-4000-8000-000000000015",
+        dayNumber: 3,
+        title: "Day 3 — Mossel Bay Cape St. Blaize & Coastal Return to Cape Town",
+        description:
+          "Travel west along the Garden Route lakes to Mossel Bay. Visit Cape St. Blaize Lighthouse and the historic Post Office Tree before returning smoothly to Cape Town by evening.",
+        overnightLocation: null,
+        meals: ["breakfast"],
+      },
+    ],
+    faqs: [
+      {
+        question: "Can we customize the overnight towns?",
+        answer:
+          "Yes — we can base both nights in Knysna on the lagoon or split between Oudtshoorn and Knysna depending on your pace.",
+      },
+    ],
+    whatToPack: ["Walking shoes", "Light jacket", "Camera"],
+  },
+
+  {
+    id: "p1000000-0000-4000-8000-000000000016",
+    slug: "garden-route-knysna-tsitsikamma-day-tour",
+    title: "Knysna, Plettenberg Bay & Tsitsikamma Coastal Tour",
+    destinationId: "d1000000-0000-4000-8000-000000000002",
+    destinationSlug: "garden-route",
+    category: "day_tour",
+    durationDays: 1,
+    groupMin: 1,
+    groupMax: 8,
+    priceFromZar: 0,
+    summary:
+      "A private full-day chauffeur-guided showcase of the heart of the Garden Route: Wilderness Map of Africa, the dramatic Knysna Heads & Lagoon, Plettenberg Bay's Robberg Peninsula, Birds of Eden Sanctuary, Bloukrans Bridge, and the Tsitsikamma Storms River Suspension Bridges.",
+    inclusions: [
+      "Private luxury vehicle with dedicated driver-guide",
+      "Pickup and drop-off from George, Wilderness, Knysna or Plettenberg Bay (or multi-day from Cape Town)",
+      "Wilderness Lagoon & Map of Africa viewpoint stop",
+      "The Knysna Heads East Head lookout & lagoon waterfront",
+      "Plettenberg Bay & Robberg Nature Reserve viewpoint",
+      "Bloukrans Bridge Gorge stop",
+      "Tsitsikamma Storms River Mouth Suspension Bridges walk",
+      "Bottled water and on-board Wi-Fi",
+    ],
+    exclusions: [
+      "SANParks conservation entry fees",
+      "Lunch at Knysna Waterfront or Storms River",
+      "Optional bungee / zipline tickets",
+      "Gratuities",
+    ],
+    gallery: [
+      "https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?w=1200&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?w=1200&auto=format&fit=crop&q=80",
+      "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&auto=format&fit=crop&q=80",
+    ],
+    difficulty: "easy",
+    isFeatured: false,
+    isPublished: true,
+    seoTitle: "Knysna, Plettenberg Bay & Tsitsikamma Private Day Tour",
+    seoDescription:
+      "Explore the best of the Garden Route in a private luxury vehicle: Knysna Heads, Plettenberg Bay, Bloukrans Bridge and Tsitsikamma Suspension Bridges.",
+    departsFrom: ["Knysna", "George", "Wilderness", "Plettenberg Bay", "Cape Town"],
+    itinerary: [
+      {
+        id: "i-gr1-1",
+        packageId: "p1000000-0000-4000-8000-000000000016",
+        dayNumber: 1,
+        title: "Knysna Heads, Plettenberg Bay, Bloukrans & Storms River Mouth",
+        description:
+          "Start at the panoramic East Head lookout over the Knysna Lagoon channel. Continue to Plettenberg Bay and the wild Robberg Peninsula, pause at the Birds of Eden dome or Bloukrans River Gorge, and spend the afternoon walking the forest trails and three suspension bridges at Storms River Mouth inside Tsitsikamma National Park.",
+        overnightLocation: null,
+        meals: [],
+      },
+    ],
+    faqs: [
+      {
+        question: "How physically demanding is the Storms River Suspension Bridge walk?",
+        answer:
+          "The forest boardwalk trail is roughly 1 km each way with wooden steps at the final descent to the river mouth — suitable for anyone with normal walking mobility.",
+      },
+    ],
+    whatToPack: ["Comfortable walking shoes", "Sunscreen and windbreaker", "Camera"],
+  },
 ];

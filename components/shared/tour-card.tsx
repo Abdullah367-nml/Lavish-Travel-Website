@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Clock, Users, MapPin, ArrowRight } from "lucide-react";
+import { Clock, Users, MapPin, ArrowRight, Star } from "lucide-react";
 import type { TourPackage } from "@/lib/types";
 import { Card, CardBody, CardMeta, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -46,6 +46,11 @@ export function TourCard({
 
           <span className="absolute bottom-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-black/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent border border-accent/30 backdrop-blur-md shadow-md">
             Price on Request
+          </span>
+
+          <span className="absolute bottom-4 right-4 inline-flex items-center gap-1 rounded-full bg-black/80 px-2.5 py-1 text-[11px] font-semibold text-foreground border border-white/15 backdrop-blur-md">
+            <Star aria-hidden className="size-3 fill-accent text-accent" />
+            <span>4.9</span>
           </span>
         </div>
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Clock, Route as RouteIcon, PlaneLanding } from "lucide-react";
-import { getTransferRoutes } from "@/lib/data";
+import { getTransferRoutes, getReviews } from "@/lib/data";
 import { formatMinutes } from "@/lib/format";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { Card } from "@/components/ui/card";
@@ -9,6 +9,7 @@ import { JsonLd } from "@/components/shared/json-ld";
 import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/structured-data";
 import { BrandImage } from "@/components/shared/brand-image";
 import { getWhatsAppBookingUrl } from "@/lib/whatsapp";
+import { InteractiveReviewSection } from "@/components/shared/review-form";
 
 export const metadata: Metadata = {
   title: "Airport Transfers — OR Tambo, Cape Town & King Shaka",
@@ -46,7 +47,10 @@ const GROUPS: { code: string | null; name: string; blurb: string }[] = [
 ];
 
 export default async function TransfersPage() {
-  const routes = await getTransferRoutes();
+  const [routes, reviews] = await Promise.all([
+    getTransferRoutes(),
+    getReviews(3),
+  ]);
 
   const crumbs = [
     { label: "Home", href: "/" },
@@ -196,6 +200,18 @@ export default async function TransfersPage() {
             );
           })}
         </div>
+
+        <section className="mt-16 border-t border-border pt-14" aria-labelledby="transfer-reviews">
+          <h2 id="transfer-reviews" className="mb-6 font-display text-display-sm uppercase text-foreground">
+            Airport Transfer Ratings &amp; Reviews
+          </h2>
+          <InteractiveReviewSection
+            initialReviews={reviews}
+            defaultServiceOrTour="Airport Transfers (CPT / JNB / DUR)"
+            heading="Rate Our Airport Transfer Service"
+            subheading="Share your rating for our airport pickup, flight tracking, and driver professionalism."
+          />
+        </section>
       </div>
     </>
   );

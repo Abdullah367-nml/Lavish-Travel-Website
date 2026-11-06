@@ -43,6 +43,8 @@ import { Departures } from "@/components/tours/departures";
 import { Gallery } from "@/components/tours/gallery";
 import { TourCard } from "@/components/shared/tour-card";
 import { FaqList } from "@/components/shared/faq-list";
+import { BrandImage } from "@/components/shared/brand-image";
+import { InteractiveReviewSection } from "@/components/shared/review-form";
 
 /**
  * Content comes from Supabase and an admin can change it at any time, so this
@@ -179,34 +181,53 @@ export default async function TourDetailPage({ params }: TourPageProps) {
               </div>
             </section>
 
-            {/* Attractions this tour covers */}
+            {/* Attractions / Route Points this tour covers (with images) */}
             {tour.attractions && tour.attractions.length > 0 && (
               <section className="mt-14" aria-labelledby="attractions-heading">
                 <h2
                   id="attractions-heading"
                   className="font-display text-display-sm uppercase text-foreground"
                 >
-                  What you will see
+                  Key Stops &amp; Sights on This Route
                 </h2>
-                <ul className="mt-6 flex flex-col gap-5">
+                <ul className="mt-6 grid gap-5 sm:grid-cols-2">
                   {tour.attractions.map((attraction) => (
-                    <li key={attraction.id} className="flex gap-3">
-                      <Check
-                        aria-hidden
-                        className="mt-1 size-4 shrink-0 text-success"
-                      />
-                      <div>
+                    <li
+                      key={attraction.id}
+                      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-colors hover:border-accent/40"
+                    >
+                      <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-900">
+                        <BrandImage
+                          src={attraction.image}
+                          alt={attraction.name}
+                          fill
+                          width={560}
+                          height={350}
+                          sizes="(max-width: 640px) 100vw, 45vw"
+                          className="transition-transform duration-700 ease-out group-hover:scale-105"
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"
+                        />
+                        {attraction.category && (
+                          <div className="absolute left-3 top-3">
+                            <Badge variant="default">{attraction.category}</Badge>
+                          </div>
+                        )}
+                      </div>
+                      <div className="flex flex-1 flex-col p-4">
                         <h3 className="font-display text-heading-sm uppercase tracking-wide text-foreground">
                           {attraction.name}
                         </h3>
-                        <p className="mt-1.5 text-body-sm leading-relaxed text-muted-foreground">
-                          {attraction.description}
-                        </p>
                         {attraction.location && (
-                          <p className="mt-1.5 text-caption uppercase tracking-[0.14em] text-muted-foreground">
+                          <p className="mt-1 text-caption uppercase tracking-[0.14em] text-accent">
                             {attraction.location}
                           </p>
                         )}
+                        <p className="mt-2 flex-1 text-body-sm leading-relaxed text-muted-foreground">
+                          {attraction.description}
+                        </p>
                       </div>
                     </li>
                   ))}
@@ -317,36 +338,22 @@ export default async function TourDetailPage({ params }: TourPageProps) {
               </section>
             )}
 
-            {/* Reviews for this tour */}
-            {reviews.length > 0 && (
-              <section className="mt-14" aria-labelledby="reviews-heading">
-                <h2
-                  id="reviews-heading"
-                  className="font-display text-display-sm uppercase text-foreground"
-                >
-                  From guests who went
-                </h2>
-                <ul className="mt-6 flex flex-col gap-4">
-                  {reviews.map((review) => (
-                    <li key={review.id}>
-                      <Card>
-                        <CardBody className="flex flex-col gap-3">
-                          <h3 className="font-display text-heading-sm uppercase tracking-wide text-foreground">
-                            {review.title}
-                          </h3>
-                          <blockquote className="text-body-sm leading-relaxed text-muted-foreground">
-                            {review.body}
-                          </blockquote>
-                          <CardMeta>
-                            {review.authorName} &middot; {review.authorCountry}
-                          </CardMeta>
-                        </CardBody>
-                      </Card>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
+            {/* Reviews & Rate This Tour */}
+            <section className="mt-14" aria-labelledby="reviews-heading">
+              <h2
+                id="reviews-heading"
+                className="mb-6 font-display text-display-sm uppercase text-foreground"
+              >
+                Guest Ratings &amp; Reviews
+              </h2>
+              <InteractiveReviewSection
+                initialReviews={reviews}
+                defaultServiceOrTour={tour.title}
+                packageId={tour.id}
+                heading={`Rate ${tour.title}`}
+                subheading="Have you travelled on this itinerary? Share your rating for future travellers."
+              />
+            </section>
           </div>
 
           {/* --- Sticky booking rail ---------------------------------------- */}

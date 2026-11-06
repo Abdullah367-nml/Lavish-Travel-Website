@@ -10,6 +10,7 @@ import type {
 import { isSupabaseConfigured, supabasePublic } from "@/lib/supabase/server";
 import { destinations as staticDestinations } from "./destinations";
 import { tourPackages as staticTours } from "./tours";
+import { staticAttractions } from "./attractions";
 
 /**
  * Supabase-backed catalogue: destinations, attractions, tours, availability.
@@ -138,24 +139,70 @@ type TourRow = {
   destinations?: { slug: string; name: string } | null;
 };
 
+const LEGACY_TOUR_GALLERIES: Record<string, string[]> = {
+  "cape-town-explorer": [
+    "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&auto=format&fit=crop&q=80",
+  ],
+  "cape-town-highlights": [
+    "https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&auto=format&fit=crop&q=80",
+  ],
+  "cape-town-adventure": [
+    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=1200&auto=format&fit=crop&q=80",
+  ],
+  "cape-peninsula-full-day": [
+    "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&auto=format&fit=crop&q=80",
+  ],
+  "robben-island-history": [
+    "https://images.unsplash.com/photo-1577948000111-9c970dfe3743?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1576485290814-1c72aa4bbb8e?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&auto=format&fit=crop&q=80",
+  ],
+  "stellenbosch-heritage-wine": [
+    "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?w=1200&auto=format&fit=crop&q=80",
+  ],
+  "jonkershoek-sculpture-garden": [
+    "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&auto=format&fit=crop&q=80",
+    "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1200&auto=format&fit=crop&q=80",
+  ],
+};
+
+function hasValidRemoteImage(src: string | null | undefined): boolean {
+  return Boolean(src && (src.startsWith("http://") || src.startsWith("https://")));
+}
+
 // --- mappers -----------------------------------------------------------------
 
 function toDestination(row: DestinationRow): Destination {
+  const staticMatch = staticDestinations.find((d) => d.slug === row.slug);
+  const heroImage = hasValidRemoteImage(row.image)
+    ? row.image
+    : staticMatch?.heroImage ??
+      "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&auto=format&fit=crop&q=80";
+
   return {
     id: row.id,
     slug: row.slug,
     name: row.name,
     province: (row.province ?? "Western Cape") as Province,
     country: row.country,
-    heroImage: row.image,
+    heroImage,
     intro: row.description,
-    body: row.body ?? [],
-    lat: Number(row.lat ?? 0),
-    lng: Number(row.lng ?? 0),
+    body: row.body && row.body.length > 0 ? row.body : staticMatch?.body ?? [],
+    lat: Number(row.lat ?? staticMatch?.lat ?? 0),
+    lng: Number(row.lng ?? staticMatch?.lng ?? 0),
     seoTitle: row.seo_title ?? row.name,
     seoDescription: row.seo_description ?? row.description,
     isPublished: row.status === "published",
-    bestMonths: row.best_months ?? "All year",
+    bestMonths: row.best_months ?? staticMatch?.bestMonths ?? "All year",
     parentId: row.parent_id,
     parentSlug: row.parent?.slug ?? null,
     parentName: row.parent?.name ?? null,
@@ -167,18 +214,24 @@ function toDestination(row: DestinationRow): Destination {
 }
 
 function toAttraction(row: AttractionRow): Attraction {
+  const staticMatch = staticAttractions.find((a) => a.slug === row.slug);
+  const image = hasValidRemoteImage(row.image)
+    ? row.image
+    : staticMatch?.image ??
+      "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=900&auto=format&fit=crop&q=80";
+
   return {
     id: row.id,
     destinationId: row.destination_id,
     slug: row.slug,
     name: row.name,
     description: row.description,
-    image: row.image,
-    location: row.location,
+    image,
+    location: row.location ?? staticMatch?.location ?? null,
     sortOrder: row.sort_order,
-    category: row.category,
-    suggestedTime: row.suggested_time,
-    visitorNote: row.visitor_note,
+    category: row.category ?? staticMatch?.category ?? null,
+    suggestedTime: row.suggested_time ?? staticMatch?.suggestedTime ?? null,
+    visitorNote: row.visitor_note ?? staticMatch?.visitorNote ?? null,
   };
 }
 
@@ -195,12 +248,23 @@ function toItinerary(row: TourRow): ItineraryDay[] {
 }
 
 function toTour(row: TourRow, destinationSlug?: string): TourPackage {
+  const staticMatch = staticTours.find((t) => t.slug === row.slug);
+  const validDbImages = (row.images ?? []).filter(hasValidRemoteImage);
+  const gallery =
+    validDbImages.length > 0
+      ? validDbImages
+      : staticMatch?.gallery ??
+        LEGACY_TOUR_GALLERIES[row.slug] ?? [
+          "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&auto=format&fit=crop&q=80",
+          "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&auto=format&fit=crop&q=80",
+        ];
+
   return {
     id: row.id,
     slug: row.slug,
     title: row.name,
     destinationId: row.destination_id,
-    destinationSlug: destinationSlug ?? row.destinations?.slug ?? "",
+    destinationSlug: destinationSlug ?? row.destinations?.slug ?? staticMatch?.destinationSlug ?? "cape-town",
     category: row.category as TourPackage["category"],
     durationDays: row.duration_days,
     groupMin: 1,
@@ -209,16 +273,19 @@ function toTour(row: TourRow, destinationSlug?: string): TourPackage {
     summary: row.summary,
     inclusions: row.inclusions ?? [],
     exclusions: row.exclusions ?? [],
-    gallery: row.images ?? [],
+    gallery,
     difficulty: row.difficulty as TourPackage["difficulty"],
     isFeatured: row.is_featured,
     isPublished: row.status === "published",
     seoTitle: row.seo_title ?? row.name,
     seoDescription: row.seo_description ?? row.summary,
     itinerary: toItinerary(row),
-    departsFrom: row.destinations?.name ? [row.destinations.name] : [],
-    faqs: row.faqs ?? [],
-    whatToPack: row.what_to_pack ?? [],
+    departsFrom: row.destinations?.name ? [row.destinations.name] : staticMatch?.departsFrom ?? ["Cape Town"],
+    faqs: row.faqs && row.faqs.length > 0 ? row.faqs : staticMatch?.faqs ?? [],
+    whatToPack:
+      row.what_to_pack && row.what_to_pack.length > 0
+        ? row.what_to_pack
+        : staticMatch?.whatToPack ?? [],
     priceChildZar: row.price_child_zar,
     capacity: row.capacity,
     pickupInfo: row.pickup_info,
@@ -241,6 +308,7 @@ export async function fetchDestinations(): Promise<Destination[]> {
         .from("destinations")
         .select("*, parent:parent_id(slug, name)")
         .eq("status", "published")
+        .is("parent_id", null)
         .order("sort_order")
         .order("name")
     ).then(({ data, error }) => {
@@ -250,7 +318,17 @@ export async function fetchDestinations(): Promise<Destination[]> {
     "fetchDestinations",
     [],
   );
-  return result && result.length > 0 ? result : staticDestinations;
+
+  if (!result || result.length === 0) return staticDestinations;
+
+  // Merge staticDestinations so key regions (Garden Route, Kruger, etc.) are always available
+  const bySlug = new Map<string, Destination>();
+  for (const d of staticDestinations) bySlug.set(d.slug, d);
+  for (const d of result) {
+    if (d.slug === "ceres") continue; // Skip empty draft town lacking tours
+    bySlug.set(d.slug, d);
+  }
+  return Array.from(bySlug.values());
 }
 
 export async function fetchDestinationBySlug(
@@ -287,7 +365,11 @@ export async function fetchDestinationBySlug(
 export async function fetchAttractions(
   destinationSlug?: string,
 ): Promise<Attraction[]> {
-  if (!isSupabaseConfigured()) return [];
+  const staticFiltered = destinationSlug
+    ? staticAttractions.filter((a) => a.destinationSlug === destinationSlug)
+    : staticAttractions;
+
+  if (!isSupabaseConfigured()) return staticFiltered;
   try {
     let query = supabasePublic()
       .from("attractions")
@@ -297,18 +379,29 @@ export async function fetchAttractions(
     if (destinationSlug) query = query.eq("destinations.slug", destinationSlug);
     const { data, error } = await query;
     if (error) throw error;
-    return (data as AttractionRow[]).map(toAttraction);
+    const dbAttractions = (data as AttractionRow[]).map(toAttraction);
+    if (dbAttractions.length === 0) return staticFiltered;
+
+    const bySlug = new Map<string, Attraction>();
+    for (const a of staticFiltered) bySlug.set(a.slug, a);
+    for (const a of dbAttractions) bySlug.set(a.slug, a);
+    return Array.from(bySlug.values()).sort((a, b) => a.sortOrder - b.sortOrder);
   } catch (error) {
     warnOnce("fetchAttractions", error);
-    return [];
+    return staticFiltered;
   }
 }
 
 /** Attractions linked to a tour, via the tour_attractions join table. */
 export async function fetchTourAttractions(
   tourId: string,
+  destinationSlug?: string,
 ): Promise<Attraction[]> {
-  if (!isSupabaseConfigured()) return [];
+  const fallback = destinationSlug
+    ? staticAttractions.filter((a) => a.destinationSlug === destinationSlug).slice(0, 6)
+    : [];
+
+  if (!isSupabaseConfigured()) return fallback;
   try {
     const { data, error } = await supabasePublic()
       .from("tour_attractions")
@@ -316,13 +409,14 @@ export async function fetchTourAttractions(
       .eq("tour_id", tourId)
       .order("sort_order");
     if (error) throw error;
-    return (data as unknown as { attractions: AttractionRow | null }[])
+    const linked = (data as unknown as { attractions: AttractionRow | null }[])
       .map((row) => row.attractions)
       .filter((a): a is AttractionRow => Boolean(a))
       .map(toAttraction);
+    return linked.length > 0 ? linked : fallback;
   } catch (error) {
     warnOnce("fetchTourAttractions", error);
-    return [];
+    return fallback;
   }
 }
 
@@ -344,7 +438,13 @@ export async function fetchTours(): Promise<TourPackage[]> {
     "fetchTours",
     [],
   );
-  return result && result.length > 0 ? result : staticTours;
+
+  if (!result || result.length === 0) return staticTours;
+
+  const bySlug = new Map<string, TourPackage>();
+  for (const t of staticTours) bySlug.set(t.slug, t);
+  for (const t of result) bySlug.set(t.slug, t);
+  return Array.from(bySlug.values());
 }
 
 export async function fetchTourBySlug(
@@ -356,7 +456,14 @@ export async function fetchTourBySlug(
       (t) => t.slug === slug && t.destinationSlug === destinationSlug,
     ) ?? null;
 
-  if (!isSupabaseConfigured()) return fallback;
+  if (!isSupabaseConfigured()) {
+    if (fallback && (!fallback.attractions || fallback.attractions.length === 0)) {
+      fallback.attractions = staticAttractions
+        .filter((a) => a.destinationSlug === destinationSlug)
+        .slice(0, 6);
+    }
+    return fallback;
+  }
   try {
     const { data, error } = await supabasePublic()
       .from("tours")
@@ -365,14 +472,26 @@ export async function fetchTourBySlug(
       .eq("status", "published")
       .maybeSingle();
     if (error) throw error;
-    if (!data) return fallback;
+    if (!data) {
+      if (fallback && (!fallback.attractions || fallback.attractions.length === 0)) {
+        fallback.attractions = staticAttractions
+          .filter((a) => a.destinationSlug === destinationSlug)
+          .slice(0, 6);
+      }
+      return fallback;
+    }
     const tour = toTour(data as unknown as TourRow);
     // Guard the URL: /tours/stellenbosch/cape-town-explorer must not resolve.
     if (tour.destinationSlug !== destinationSlug) return null;
-    tour.attractions = await fetchTourAttractions(tour.id);
+    tour.attractions = await fetchTourAttractions(tour.id, destinationSlug);
     return tour;
   } catch (error) {
     warnOnce("fetchTourBySlug", error);
+    if (fallback && (!fallback.attractions || fallback.attractions.length === 0)) {
+      fallback.attractions = staticAttractions
+        .filter((a) => a.destinationSlug === destinationSlug)
+        .slice(0, 6);
+    }
     return fallback;
   }
 }

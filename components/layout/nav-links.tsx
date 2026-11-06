@@ -16,9 +16,9 @@ export const PRIMARY_NAV: NavLink[] = [
   { label: "Chauffeur", href: "/chauffeur" },
   { label: "Car Hire", href: "/car-hire" },
   { label: "Destinations", href: "/destinations" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
   { label: "My Bookings", href: "/my-bookings" },
+  { label: "Contact", href: "/contact" },
+  { label: "About", href: "/about" },
 ];
 
 /**

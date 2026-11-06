@@ -124,42 +124,71 @@ export default async function DestinationPage({ params }: Props) {
           ))}
         </div>
 
-        {/* Attractions — the client's own guide content */}
+        {/* Attractions / Route Points with Photography */}
         {attractions.length > 0 && (
           <section className="mt-16 border-t border-border pt-12" aria-labelledby="dest-attractions">
             <h2
               id="dest-attractions"
               className="font-display text-display-sm uppercase text-foreground"
             >
-              What to see in {destination.name}
+              Key Route Points &amp; Sights in {destination.name}
             </h2>
-            <ul className="mt-8 flex flex-col gap-8">
-              {attractions.map((a) => (
-                <li key={a.id} className="border-l-2 border-accent/40 pl-5">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <h3 className="font-display text-heading-md uppercase tracking-wide text-foreground">
-                      {a.name}
-                    </h3>
-                    {a.category && <Badge variant="outline">{a.category}</Badge>}
+            <p className="mt-2 text-body-sm text-muted-foreground">
+              Explore the signature stops, coastal lookouts, and landmarks included across our private {destination.name} itineraries.
+            </p>
+            <ul className="mt-8 grid gap-6 sm:grid-cols-2">
+              {attractions.map((a, idx) => (
+                <li
+                  key={a.id}
+                  className="group flex flex-col overflow-hidden rounded-xl border border-border bg-surface transition-all duration-300 hover:border-accent/50"
+                >
+                  <div className="relative aspect-[16/10] w-full overflow-hidden bg-zinc-900">
+                    <BrandImage
+                      src={a.image}
+                      alt={a.name}
+                      fill
+                      width={640}
+                      height={400}
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      className="transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"
+                    />
+                    <div className="absolute left-3.5 top-3.5 flex flex-wrap items-center gap-2">
+                      <span className="flex size-7 items-center justify-center rounded-full bg-accent text-xs font-bold text-black shadow">
+                        {idx + 1}
+                      </span>
+                      {a.category && <Badge variant="default">{a.category}</Badge>}
+                    </div>
                     {a.suggestedTime && (
-                      <span className="text-caption uppercase tracking-[0.14em] text-accent">
+                      <span className="absolute bottom-3 right-3 rounded-full bg-black/75 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-accent border border-accent/30 backdrop-blur-sm">
                         {a.suggestedTime}
                       </span>
                     )}
                   </div>
-                  <p className="mt-3 max-w-2xl text-body-sm leading-relaxed text-muted-foreground">
-                    {a.description}
-                  </p>
-                  {a.location && (
-                    <p className="mt-2 text-caption uppercase tracking-[0.14em] text-muted-foreground">
-                      {a.location}
+
+                  <div className="flex flex-1 flex-col p-5">
+                    <h3 className="font-display text-heading-sm uppercase tracking-wide text-foreground group-hover:text-accent transition-colors">
+                      {a.name}
+                    </h3>
+                    {a.location && (
+                      <p className="mt-1 flex items-center gap-1.5 text-caption uppercase tracking-[0.14em] text-accent/90">
+                        <MapPin aria-hidden className="size-3 shrink-0" />
+                        {a.location}
+                      </p>
+                    )}
+                    <p className="mt-3 flex-1 text-body-sm leading-relaxed text-muted-foreground">
+                      {a.description}
                     </p>
-                  )}
-                  {a.visitorNote && (
-                    <p className="mt-3 max-w-2xl rounded-sm border border-border bg-surface px-4 py-2.5 text-caption leading-relaxed text-muted-foreground">
-                      {a.visitorNote}
-                    </p>
-                  )}
+                    {a.visitorNote && (
+                      <p className="mt-4 rounded-md border border-border/80 bg-background/60 px-3.5 py-2.5 text-caption leading-relaxed text-muted-foreground">
+                        <span className="font-semibold text-accent">Tip: </span>
+                        {a.visitorNote}
+                      </p>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>

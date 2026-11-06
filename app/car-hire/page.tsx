@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
-import { getCities, getSelfDriveVehicles } from "@/lib/data";
+import { getCities, getSelfDriveVehicles, getReviews } from "@/lib/data";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { VehicleCard } from "@/components/shared/vehicle-card";
 import { Card, CardBody } from "@/components/ui/card";
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { JsonLd } from "@/components/shared/json-ld";
 import { breadcrumbJsonLd, faqJsonLd } from "@/lib/structured-data";
 import { FaqList } from "@/components/shared/faq-list";
+import { InteractiveReviewSection } from "@/components/shared/review-form";
 
 export const metadata: Metadata = {
   title: "Self-Drive Luxury Car Hire",
@@ -46,9 +47,10 @@ const FAQS = [
 ];
 
 export default async function CarHirePage() {
-  const [cities, vehicles] = await Promise.all([
+  const [cities, vehicles, reviews] = await Promise.all([
     getCities(),
     getSelfDriveVehicles(),
+    getReviews(3),
   ]);
 
   const crumbs = [
@@ -162,6 +164,18 @@ export default async function CarHirePage() {
           <div className="mt-6 max-w-3xl">
             <FaqList faqs={FAQS} />
           </div>
+        </section>
+
+        <section className="mt-16 border-t border-border pt-14" aria-labelledby="car-hire-reviews">
+          <h2 id="car-hire-reviews" className="mb-6 font-display text-display-sm uppercase text-foreground">
+            Car Hire Ratings &amp; Reviews
+          </h2>
+          <InteractiveReviewSection
+            initialReviews={reviews}
+            defaultServiceOrTour="Self-Drive Luxury Car Hire"
+            heading="Rate Our Self-Drive Car Hire"
+            subheading="Share your rating for our vehicle condition, airport delivery, and support."
+          />
         </section>
 
         <div className="mt-14 flex flex-col gap-3 border-t border-border pt-10 sm:flex-row">

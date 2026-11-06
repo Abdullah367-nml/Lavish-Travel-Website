@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, Star, Users, Compass } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, Users, Compass } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -94,11 +94,11 @@ export function Hero() {
 
           <div className="flex items-center gap-3">
             <div className="flex size-10 items-center justify-center rounded-lg border border-accent/30 bg-black/50 text-accent">
-              <Star className="size-5 fill-accent" />
+              <Clock className="size-5" />
             </div>
             <div>
-              <p className="text-xs font-bold text-foreground">4.9 / 5.0 Rating</p>
-              <p className="text-[11px] text-muted-foreground">International guests</p>
+              <p className="text-xs font-bold text-foreground">24/7 Door-to-Door</p>
+              <p className="text-[11px] text-muted-foreground">Airport &amp; hotel pickup</p>
             </div>
           </div>
 

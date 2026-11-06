@@ -16,37 +16,36 @@ export function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo />
 
-        <nav aria-label="Primary" className="hidden lg:block">
-          <ul className="flex items-center gap-5 xl:gap-7">
-            {PRIMARY_NAV.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-sm font-medium tracking-wide text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="hidden items-center gap-6 lg:flex">
+          <nav aria-label="Primary">
+            <ul className="flex items-center gap-5 xl:gap-7">
+              {PRIMARY_NAV.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-sm font-medium tracking-wide text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <Button asChild variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground">
+          <Button
+            asChild
+            size="sm"
+            className="bg-[#25D366] text-black hover:bg-[#20bd5a] font-semibold"
+          >
             <a
               href="https://wa.me/27624015042?text=Hi%20Lavish%20Travels%20%26%20Tours%2C%20I%20would%20like%20to%20enquire%20about%20a%20private%20tour."
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5"
             >
-              <MessageCircle className="size-4 text-[#25D366]" />
+              <MessageCircle className="size-4 fill-black/10 text-black" />
               <span>WhatsApp</span>
             </a>
-          </Button>
-          <Button asChild size="sm">
-            <Link href="/enquire">
-              Enquire Now
-            </Link>
           </Button>
         </div>
 
