@@ -251,13 +251,14 @@ function toTour(row: TourRow, destinationSlug?: string): TourPackage {
   const staticMatch = staticTours.find((t) => t.slug === row.slug);
   const validDbImages = (row.images ?? []).filter(hasValidRemoteImage);
   const gallery =
-    validDbImages.length > 0
-      ? validDbImages
-      : staticMatch?.gallery ??
-        LEGACY_TOUR_GALLERIES[row.slug] ?? [
-          "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&auto=format&fit=crop&q=80",
-          "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&auto=format&fit=crop&q=80",
-        ];
+    staticMatch?.gallery && staticMatch.gallery.length > 0
+      ? staticMatch.gallery
+      : validDbImages.length > 0
+        ? validDbImages
+        : LEGACY_TOUR_GALLERIES[row.slug] ?? [
+            "https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1200&auto=format&fit=crop&q=80",
+            "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=1200&auto=format&fit=crop&q=80",
+          ];
 
   return {
     id: row.id,

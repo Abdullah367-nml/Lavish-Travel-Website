@@ -85,16 +85,10 @@ export function SiteFooter() {
           ))}
         </div>
 
-                {/* ECTA s.43 supplier disclosure — placeholder values to be
-            replaced with the real registration details in Section 9. */}
         <div className="mt-12 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
-          <p>
-            Lavish Travels & Tours (Pty) Ltd &middot; Reg. No.
-            [COMPANY-REGISTRATION-NUMBER] &middot; VAT No.
-            [VAT-NUMBER] &middot; [PHYSICAL-BUSINESS-ADDRESS], South Africa
-          </p>
+          <p>Lavish Travels &amp; Tours (Pty) Ltd</p>
           <p className="mt-2">
-            &copy; {year} Lavish Travels & Tours. All rights reserved.
+            &copy; {year} Lavish Travels &amp; Tours. All rights reserved.
           </p>
         </div>
       </div>
