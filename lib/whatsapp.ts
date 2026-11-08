@@ -28,14 +28,9 @@ export function getDirectEmailUrl(subject?: string, body?: string): string {
   const bd =
     body ??
     "Hi Lavish Travels & Tours,\n\nI would like to enquire about a private tour / transfer in South Africa.\n\nPreferred dates:\nNumber of guests:\nServices needed:\n\nThank you!";
-  return `mailto:${CONCIERGE_EMAIL}?subject=${encodeURIComponent(su)}&body=${encodeURIComponent(bd)}`;
+  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONCIERGE_EMAIL)}&su=${encodeURIComponent(su)}&body=${encodeURIComponent(bd)}`;
 }
 
 export function getGmailComposeUrl(subject?: string, body?: string): string {
-  const su =
-    subject ?? "Private Tour & Travel Enquiry — Lavish Travels & Tours";
-  const bd =
-    body ??
-    "Hi Lavish Travels & Tours,\n\nI would like to enquire about a private tour / transfer in South Africa.\n\nPreferred dates:\nNumber of guests:\nServices needed:\n\nThank you!";
-  return `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(CONCIERGE_EMAIL)}&su=${encodeURIComponent(su)}&body=${encodeURIComponent(bd)}`;
+  return getDirectEmailUrl(subject, body);
 }

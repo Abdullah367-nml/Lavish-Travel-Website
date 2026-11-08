@@ -129,21 +129,17 @@ export default function ContactPage() {
                 Detailed proposals, corporate contracts, and bespoke private itineraries.
               </p>
             </div>
-            <div className="mt-8 flex flex-col gap-2.5">
+            <div className="mt-8">
               <Button asChild variant="outline" className="w-full border-accent/40 hover:bg-accent/10">
-                <a href={getDirectEmailUrl()}>
+                <a
+                  href={getDirectEmailUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Mail className="mr-2 size-4 text-accent" />
-                  Send Direct Email
+                  ilavishtravels@gmail.com
                 </a>
               </Button>
-              <a
-                href={getGmailComposeUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-center text-xs text-muted-foreground underline-offset-4 transition-colors hover:text-accent hover:underline"
-              >
-                Or open directly in Gmail (ilavishtravels@gmail.com) ↗
-              </a>
             </div>
           </div>
         </div>

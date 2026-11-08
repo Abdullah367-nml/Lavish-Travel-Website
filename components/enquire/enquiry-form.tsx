@@ -351,6 +351,8 @@ export function EnquiryForm() {
                   `Quote Request (${reference}) — ${SERVICE_LABELS[values.serviceType]}`,
                   directMessageBody,
                 )}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 <Mail className="mr-2 size-4 text-accent" />
                 Send via Direct Email

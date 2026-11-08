@@ -140,6 +140,8 @@ export default async function BookingDetailPage({ params }: Props) {
                 `Booking Confirmation Request (${booking.reference}) — ${booking.tourName ?? "Lavish Tour"}`,
                 `Hi Lavish Travels & Tours,\n\nI have submitted booking ${booking.reference}.\n\nTour: ${booking.tourName ?? "—"}\nDate: ${booking.tourDate ? formatDate(booking.tourDate) : "—"}\nTravellers: ${booking.adults} adult(s), ${booking.children} child(ren)\nPickup: ${booking.pickupLocation || "To be confirmed"}\nLead Traveller: ${booking.contactFirstName} ${booking.contactLastName}\nPhone: ${booking.contactPhone}\n\nPlease confirm availability and payment details.\nThank you!`,
               )}
+              target="_blank"
+              rel="noopener noreferrer"
             >
               <Mail className="mr-2 size-4 text-accent" />
               Send via Direct Email
