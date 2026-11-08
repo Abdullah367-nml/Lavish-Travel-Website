@@ -11,24 +11,24 @@ import { Button } from "@/components/ui/button";
 export function Hero() {
   return (
     <section className="relative isolate flex min-h-[500px] items-end overflow-hidden bg-background sm:min-h-[560px] lg:min-h-[620px]">
-      {/* Real High-Resolution African Travel Landscape */}
+      {/* Real High-Resolution Luxury Resort & Grand Hotel Scenery */}
       <Image
-        src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1920&auto=format&fit=crop&q=85"
-        alt="Breathtaking panoramic Table Mountain and Twelve Apostles coastline in South Africa"
+        src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=2000&auto=format&fit=crop&q=90"
+        alt="Five-star luxury grand hotel and resort illuminated in warm golden light"
         fill
         priority
         sizes="100vw"
-        className="-z-30 scale-105 object-cover object-[center_35%] transition-transform duration-1000 ease-out"
+        className="-z-30 scale-105 object-cover object-center transition-transform duration-1000 ease-out"
       />
 
-      {/* Cinematic dark luxury overlay gradient */}
+      {/* Balanced luxury overlay gradient so the hero image stays bright and eye-catching */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-20 bg-gradient-to-r from-black/95 via-black/75 to-black/40"
+        className="absolute inset-0 -z-20 bg-gradient-to-r from-black/80 via-black/45 to-black/10"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-20 bg-gradient-to-t from-background via-black/40 to-black/60"
+        className="absolute inset-0 -z-20 bg-gradient-to-t from-background via-black/20 to-black/25"
       />
 
       {/* Warm Golden Safari Sunset Radial Glow */}

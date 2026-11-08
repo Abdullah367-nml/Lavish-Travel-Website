@@ -50,8 +50,6 @@ const FOOTER_COLUMNS: { heading: string; links: { label: string; href: string }[
 ];
 
 export function SiteFooter() {
-  const year = new Date().getFullYear();
-
   return (
     <footer className="border-t border-border bg-surface">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
@@ -87,9 +85,6 @@ export function SiteFooter() {
 
         <div className="mt-12 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
           <p>Lavish Travels &amp; Tours (Pty) Ltd</p>
-          <p className="mt-2">
-            &copy; {year} Lavish Travels &amp; Tours. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
