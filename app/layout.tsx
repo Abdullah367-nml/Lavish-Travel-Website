@@ -51,8 +51,8 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${fontDisplay.variable} ${fontSans.variable} h-full`}
     >
-      <head>
-        {/* Google Analytics 4 */}
+      <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
+        {/* Google Analytics 4 (Next.js App Router standard placement) */}
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -71,8 +71,6 @@ export default function RootLayout({
             `,
           }}
         />
-      </head>
-      <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
