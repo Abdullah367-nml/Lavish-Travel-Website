@@ -1,11 +1,13 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { fontDisplay, fontSans } from "./fonts";
 import { SiteHeader } from "@/components/layout/site-header";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { MobileActionBar, WhatsAppFab } from "@/components/shared/whatsapp";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lavishtravelstours.co.za";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lavishtravelsa.co.za";
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID ?? "G-8J2PR7FXV6";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -49,6 +51,27 @@ export default function RootLayout({
       data-scroll-behavior="smooth"
       className={`${fontDisplay.variable} ${fontSans.variable} h-full`}
     >
+      <head>
+        {/* Google Analytics 4 */}
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        />
+        <Script
+          id="google-analytics-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_MEASUREMENT_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
+      </head>
       <body className="flex min-h-full flex-col bg-background text-foreground antialiased">
         <a href="#main-content" className="skip-link">
           Skip to main content
