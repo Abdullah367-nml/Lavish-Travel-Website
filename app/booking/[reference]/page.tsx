@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CircleCheck, ArrowLeft } from "lucide-react";
+import { CircleCheck, ArrowLeft, Mail, MessageCircle } from "lucide-react";
 import { getBookingByReference } from "@/lib/bookings";
 import { requireUser } from "@/lib/auth";
 import { formatDate, formatZar } from "@/lib/format";
@@ -11,6 +11,7 @@ import { Card, CardBody, CardMeta } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { DownloadVoucherButton } from "@/components/booking/download-voucher-button";
 import { CancelBookingButton } from "@/components/booking/cancel-booking-button";
+import { getDirectEmailUrl, getWhatsAppGeneralUrl } from "@/lib/whatsapp";
 
 export const dynamic = "force-dynamic";
 
@@ -117,9 +118,34 @@ export default async function BookingDetailPage({ params }: Props) {
         </h2>
         <p className="mt-3 text-body-sm leading-relaxed text-muted-foreground">
           Your seats are held. A consultant confirms the booking and sends
-          payment instructions by email. No card details are taken on this
-          site — payment is by EFT or a secure gateway link.
+          payment instructions by email. You can also send your booking summary
+          directly to our team via WhatsApp or Email below:
         </p>
+        <div className="mt-4 flex flex-wrap gap-3 print:hidden">
+          <Button asChild size="sm">
+            <a
+              href={getWhatsAppGeneralUrl(
+                `Hi Lavish Travels & Tours, I just placed booking ${booking.reference} for "${booking.tourName ?? "Tour"}" on ${booking.tourDate ? formatDate(booking.tourDate) : "TBD"} (${booking.adults} adult(s), ${booking.children} child(ren)). Please confirm my custom quote.`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <MessageCircle className="mr-2 size-4" />
+              Send via WhatsApp
+            </a>
+          </Button>
+          <Button asChild size="sm" variant="outline" className="border-accent/40 hover:bg-accent/10">
+            <a
+              href={getDirectEmailUrl(
+                `Booking Confirmation Request (${booking.reference}) — ${booking.tourName ?? "Lavish Tour"}`,
+                `Hi Lavish Travels & Tours,\n\nI have submitted booking ${booking.reference}.\n\nTour: ${booking.tourName ?? "—"}\nDate: ${booking.tourDate ? formatDate(booking.tourDate) : "—"}\nTravellers: ${booking.adults} adult(s), ${booking.children} child(ren)\nPickup: ${booking.pickupLocation || "To be confirmed"}\nLead Traveller: ${booking.contactFirstName} ${booking.contactLastName}\nPhone: ${booking.contactPhone}\n\nPlease confirm availability and payment details.\nThank you!`,
+              )}
+            >
+              <Mail className="mr-2 size-4 text-accent" />
+              Send via Direct Email
+            </a>
+          </Button>
+        </div>
       </div>
 
       <div className="mt-8 flex flex-wrap items-center justify-between gap-3 print:hidden">

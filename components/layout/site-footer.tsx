@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { Mail, MessageCircle } from "lucide-react";
 import { Logo } from "./logo";
+import { getDirectEmailUrl, getWhatsAppGeneralUrl } from "@/lib/whatsapp";
 
 /**
  * Rich footer shell (Section 4 #1). Structure and NAP/legal placeholders
@@ -60,6 +62,24 @@ export function SiteFooter() {
               Luxury travel, tours and chauffeur transfers across South
               Africa — Cape Town, Johannesburg, Durban and beyond.
             </p>
+            <div className="mt-5 flex flex-col gap-2 text-xs text-muted-foreground">
+              <a
+                href={getDirectEmailUrl()}
+                className="inline-flex items-center gap-2 transition-colors hover:text-accent"
+              >
+                <Mail className="size-3.5 text-accent" />
+                ilavishtravels@gmail.com
+              </a>
+              <a
+                href={getWhatsAppGeneralUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 transition-colors hover:text-[#25D366]"
+              >
+                <MessageCircle className="size-3.5 text-[#25D366]" />
+                WhatsApp: +27 62 401 5042
+              </a>
+            </div>
           </div>
 
           {FOOTER_COLUMNS.map((column) => (

@@ -32,10 +32,13 @@ import {
   CircleCheck,
   Loader2,
   AlertCircle,
+  Mail,
+  MessageCircle,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Field, Input, Textarea } from "@/components/ui/field";
 import { Card, CardBody } from "@/components/ui/card";
+import { getDirectEmailUrl, getWhatsAppGeneralUrl } from "@/lib/whatsapp";
 import {
   SERVICE_LABELS,
   SERVICE_TYPES,
@@ -296,6 +299,22 @@ export function EnquiryForm() {
     [values],
   );
 
+  const directMessageBody = useMemo(() => {
+    const lines = [
+      `Hi Lavish Travels & Tours, I would like to request a quote.`,
+      reference ? `Reference: ${reference}` : "",
+      `Service: ${SERVICE_LABELS[values.serviceType]}`,
+      values.destination ? `Destination: ${values.destination}` : "",
+      `Dates: ${values.startDate || "Flexible"} to ${values.endDate || "One-way / TBD"}`,
+      `Guests: ${values.paxAdults} adult(s), ${values.paxChildren} child(ren)`,
+      `Name: ${values.fullName || "—"}`,
+      `Email: ${values.email || "—"}`,
+      `Phone: ${values.phone || "—"}`,
+      values.specialRequests ? `Notes: ${values.specialRequests}` : "",
+    ].filter(Boolean);
+    return lines.join("\n");
+  }, [reference, values]);
+
   // --- Success -----------------------------------------------------------
   if (reference) {
     return (
@@ -312,15 +331,33 @@ export function EnquiryForm() {
             itinerary, usually within one working day.
           </p>
           <p className="text-body-sm leading-relaxed text-muted-foreground">
-            If it is urgent, call us or send a WhatsApp and quote that
-            reference — it saves repeating everything.
+            For an instant response, you can also send your trip summary
+            directly via WhatsApp or Email below:
           </p>
-          <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-2 flex flex-wrap gap-3">
             <Button asChild>
-              <Link href="/tours">Browse tours</Link>
+              <a
+                href={getWhatsAppGeneralUrl(directMessageBody)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle className="mr-2 size-4" />
+                Send via WhatsApp
+              </a>
             </Button>
-            <Button asChild variant="outline">
-              <a href="tel:+27624015042">Call us</a>
+            <Button asChild variant="outline" className="border-accent/40 hover:bg-accent/10">
+              <a
+                href={getDirectEmailUrl(
+                  `Quote Request (${reference}) — ${SERVICE_LABELS[values.serviceType]}`,
+                  directMessageBody,
+                )}
+              >
+                <Mail className="mr-2 size-4 text-accent" />
+                Send via Direct Email
+              </a>
+            </Button>
+            <Button asChild variant="ghost">
+              <Link href="/tours">Browse tours</Link>
             </Button>
           </div>
         </CardBody>
