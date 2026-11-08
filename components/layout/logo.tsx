@@ -14,15 +14,15 @@ export function Logo({ className }: { className?: string }) {
       className={cn("group flex items-center gap-3 outline-none", className)}
       aria-label="Lavish Travels & Tours — South Africa"
     >
-      <div className="relative flex size-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-amber-400/40 via-[#092218] to-black p-0.5 shadow-[0_0_22px_rgba(245,176,39,0.35)] ring-1 ring-amber-400/40 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(245,176,39,0.6)] group-hover:ring-amber-300/70">
+      <div className="relative flex size-12 shrink-0 items-center justify-center overflow-hidden rounded-full shadow-[0_0_22px_rgba(245,176,39,0.4)] ring-1 ring-amber-400/50 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(245,176,39,0.65)] group-hover:ring-amber-300/80">
         <Image
-          src="/images/logo.svg"
-          alt="Lavish Travels & Tours — South African Springbok & Rugby Gold Crest"
-          width={52}
-          height={52}
+          src="/images/logo-circle.png"
+          alt="Lavish Travels & Tours — Official Emblem"
+          width={56}
+          height={56}
           priority
           unoptimized
-          className="size-11 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]"
+          className="size-12 rounded-full object-cover"
         />
       </div>
 
