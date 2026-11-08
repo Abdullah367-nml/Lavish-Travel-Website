@@ -31,16 +31,20 @@ export default function ContactPage() {
       {/* Scenic Header */}
       <section className="relative isolate flex min-h-[380px] items-end overflow-hidden border-b border-border sm:min-h-[460px]">
         <Image
-          src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?w=1920&auto=format&fit=crop&q=85"
-          alt="Cape Town coastal sunset"
+          src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=2000&auto=format&fit=crop&q=90"
+          alt="Luxury resort and coastal sunset in South Africa"
           fill
           priority
           sizes="100vw"
-          className="-z-20 object-cover object-[center_40%]"
+          className="-z-20 object-cover object-center"
         />
         <div
           aria-hidden
-          className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-black/70 to-black/45"
+          className="absolute inset-0 -z-10 bg-gradient-to-r from-black/80 via-black/45 to-black/15"
+        />
+        <div
+          aria-hidden
+          className="absolute inset-0 -z-10 bg-gradient-to-t from-background via-black/30 to-black/20"
         />
 
         <div className="mx-auto w-full max-w-7xl px-4 pb-14 pt-28 sm:px-6 lg:px-8">

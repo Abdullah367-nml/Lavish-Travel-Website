@@ -84,7 +84,7 @@ export default async function AdminSettingsPage() {
                 Agency Name
               </label>
               <p className="mt-1 font-display text-body-md text-foreground">
-                Lavish Travels &amp; Tours (Pty) Ltd
+                Lavish Travels &amp; Tours (Pvt) Ltd
               </p>
             </div>
 

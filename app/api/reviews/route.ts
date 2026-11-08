@@ -86,8 +86,34 @@ export async function GET() {
   }
 }
 
+const REVIEW_WINDOW_MS = 60_000;
+const MAX_REVIEWS_PER_WINDOW = 5;
+const reviewHits = new Map<string, number[]>();
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const recent = (reviewHits.get(ip) ?? []).filter((t) => now - t < REVIEW_WINDOW_MS);
+  recent.push(now);
+  reviewHits.set(ip, recent);
+  if (reviewHits.size > 2000) {
+    for (const [k, times] of reviewHits) {
+      if (times.every((t) => now - t >= REVIEW_WINDOW_MS)) reviewHits.delete(k);
+    }
+  }
+  return recent.length > MAX_REVIEWS_PER_WINDOW;
+}
+
 export async function POST(request: Request) {
   try {
+    const forwarded = request.headers.get("x-forwarded-for");
+    const ip = forwarded ? forwarded.split(",")[0].trim() : "local";
+    if (isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: "Too many submissions. Please wait a minute and try again." },
+        { status: 429 },
+      );
+    }
+
     const json = await request.json();
     const parsed = createReviewSchema.safeParse(json);
 

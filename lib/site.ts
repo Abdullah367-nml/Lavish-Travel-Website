@@ -15,8 +15,8 @@
  */
 export const site = {
   name: "Lavish Travels & Tours",
-  legalName: "Lavish Travels & Tours (Pty) Ltd",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lavishtravelstours.co.za",
+  legalName: "Lavish Travels & Tours (Pvt) Ltd",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.lavishtravelsa.co.za",
   description:
     "Luxury airport transfers, chauffeur hire, self-drive car rental and tailored tour packages across South Africa.",
 

@@ -84,7 +84,7 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
-          <p>Lavish Travels &amp; Tours (Pty) Ltd</p>
+          <p>Lavish Travels &amp; Tours (Pvt) Ltd</p>
         </div>
       </div>
     </footer>

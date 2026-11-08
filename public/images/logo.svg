@@ -1,392 +1,149 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" fill="none">
   <defs>
-    <!-- 24K Luxury Metallic Gold Gradient -->
-    <linearGradient id="richGold" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFF5B8" />
-      <stop offset="22%" stop-color="#F6C85F" />
-      <stop offset="48%" stop-color="#D49122" />
-      <stop offset="75%" stop-color="#FFE08A" />
-      <stop offset="100%" stop-color="#9A5E08" />
+    <!-- Primary 24K Luxury Metallic Gold Gradient -->
+    <linearGradient id="goldPrimary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF7C2" />
+      <stop offset="25%" stop-color="#F7C95F" />
+      <stop offset="52%" stop-color="#D48E1F" />
+      <stop offset="78%" stop-color="#FFE28A" />
+      <stop offset="100%" stop-color="#9A5C06" />
     </linearGradient>
 
-    <!-- Bright Gold Highlight for Springbok Body -->
-    <linearGradient id="springbokGold" x1="10%" y1="0%" x2="90%" y2="90%">
-      <stop offset="0%" stop-color="#FFFBE0" />
-      <stop offset="32%" stop-color="#F9D06B" />
-      <stop offset="68%" stop-color="#DF9B28" />
-      <stop offset="100%" stop-color="#9E5E06" />
+    <!-- Facet Dark Gold for 3D Bevelled Compass Points -->
+    <linearGradient id="goldDarkFacet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C47D16" />
+      <stop offset="50%" stop-color="#8A5004" />
+      <stop offset="100%" stop-color="#4A2901" />
     </linearGradient>
 
-    <!-- Sunlit Kloof Corner Cliff Face (Golden Hour Sandstone) -->
-    <linearGradient id="sunlitCliff" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFF2B2" />
-      <stop offset="38%" stop-color="#E8A638" />
-      <stop offset="78%" stop-color="#91550B" />
-      <stop offset="100%" stop-color="#2D1A04" />
+    <!-- Bright Specular Gold Facet -->
+    <linearGradient id="goldBrightFacet" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E6A43B" />
+      <stop offset="55%" stop-color="#FFF0A8" />
+      <stop offset="100%" stop-color="#FFFFFF" />
     </linearGradient>
 
-    <!-- Table Mountain Main Massif Bronze/Obsidian Face -->
-    <linearGradient id="mountainMassif" x1="20%" y1="0%" x2="80%" y2="100%">
-      <stop offset="0%" stop-color="#633F11" />
-      <stop offset="45%" stop-color="#2A1B0A" />
-      <stop offset="100%" stop-color="#080D0B" />
-    </linearGradient>
-
-    <!-- Devil's Peak Distant Ridge -->
-    <linearGradient id="devilsPeak" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4E310C" />
-      <stop offset="60%" stop-color="#1C1307" />
-      <stop offset="100%" stop-color="#070B09" />
-    </linearGradient>
-
-    <!-- Golden Hour Sunset Sky Glow Behind Table Mountain -->
-    <radialGradient id="sunsetSky" cx="52%" cy="32%" r="48%">
-      <stop offset="0%" stop-color="#F7B740" stop-opacity="0.48" />
-      <stop offset="45%" stop-color="#C86D18" stop-opacity="0.22" />
-      <stop offset="100%" stop-color="#071510" stop-opacity="0" />
+    <!-- Deep Obsidian Core -->
+    <radialGradient id="obsidianCore" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#17130A" />
+      <stop offset="60%" stop-color="#090806" />
+      <stop offset="100%" stop-color="#030304" />
     </radialGradient>
-
-    <!-- Metallic Gold Rim Sheen -->
-    <linearGradient id="goldSheen" x1="0%" y1="100%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#B06E0E" />
-      <stop offset="50%" stop-color="#FFE699" />
-      <stop offset="100%" stop-color="#874D02" />
-    </linearGradient>
-
-    <!-- Obsidian & Subtle South African Springbok Heritage Green Core -->
-    <radialGradient id="shieldCore" cx="50%" cy="42%" r="65%">
-      <stop offset="0%" stop-color="#0D2D21" />
-      <stop offset="55%" stop-color="#071510" />
-      <stop offset="100%" stop-color="#040506" />
-    </radialGradient>
-
-    <!-- Rugby Ball Rich Dark Leather & Gold Tint -->
-    <linearGradient id="rugbyFill" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#23170B" />
-      <stop offset="50%" stop-color="#0D1F17" />
-      <stop offset="100%" stop-color="#060807" />
-    </linearGradient>
 
     <!-- Ambient Warm Gold Halo -->
-    <radialGradient id="regalGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#F5B027" stop-opacity="0.38" />
-      <stop offset="65%" stop-color="#D97706" stop-opacity="0.12" />
+    <radialGradient id="goldHalo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#F5B027" stop-opacity="0.35" />
+      <stop offset="65%" stop-color="#D97706" stop-opacity="0.1" />
       <stop offset="100%" stop-color="#000000" stop-opacity="0" />
     </radialGradient>
 
-    <clipPath id="innerCircleClip">
-      <circle cx="120" cy="120" r="91" />
-    </clipPath>
-
-    <filter id="dropShadow" x="-15%" y="-15%" width="130%" height="130%">
-      <feDropShadow dx="0" dy="3" stdDeviation="3.2" flood-color="#000000" flood-opacity="0.88" />
+    <filter id="luxuryShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#000000" flood-opacity="0.9" />
     </filter>
   </defs>
 
-  <!-- Outer Ambient Gold Halo -->
-  <circle cx="120" cy="120" r="114" fill="url(#regalGlow)" />
+  <!-- Ambient Outer Glow -->
+  <circle cx="120" cy="120" r="115" fill="url(#goldHalo)" />
 
-  <!-- Outer Luxury Medallion Ring -->
-  <circle cx="120" cy="120" r="106" fill="#050506" stroke="url(#richGold)" stroke-width="3" filter="url(#dropShadow)" />
-  <circle cx="120" cy="120" r="99" stroke="url(#goldSheen)" stroke-width="1" stroke-dasharray="4 3" opacity="0.85" />
-
-  <!-- Inner Shield Circle with Dark Obsidian-Bok Green Depth -->
-  <circle cx="120" cy="120" r="92" fill="url(#shieldCore)" stroke="url(#richGold)" stroke-width="2" />
-
-  <!-- ===================================================================== -->
-  <!-- ICONIC TABLE MOUNTAIN, KLOOF CORNER, DEVIL'S PEAK & SCENIC ROAD       -->
-  <!-- (Crafted directly from the Lion's Head viewpoint reference photo)     -->
-  <!-- ===================================================================== -->
-  <g clip-path="url(#innerCircleClip)">
-    <!-- Golden Sunset Sky Glow & Sunburst Rays -->
-    <circle cx="124" cy="60" r="68" fill="url(#sunsetSky)" />
-    <g opacity="0.34" stroke="url(#richGold)" stroke-width="0.9">
-      <line x1="126" y1="42" x2="126" y2="29" />
-      <line x1="142" y1="45" x2="154" y2="33" />
-      <line x1="110" y1="45" x2="96" y2="33" />
-      <line x1="156" y1="52" x2="173" y2="42" />
-      <line x1="94" y1="51" x2="76" y2="40" />
-    </g>
-
-    <!-- 1. DEVIL'S PEAK (Right Background Peak) -->
-    <path
-      d="M138 92 L152 62 L166 57 L176 61 L188 58 L204 68 L214 94 Z"
-      fill="url(#devilsPeak)"
-      stroke="url(#goldSheen)"
-      stroke-width="1.15"
-      stroke-linejoin="round"
-    />
-    <!-- Devil's Peak Ridges -->
-    <path
-      d="M166 57 L161 78 M176 61 L180 81 M188 58 L194 82"
-      stroke="#D49122"
-      stroke-width="0.75"
-      opacity="0.58"
-    />
-
-    <!-- 2. MAIN TABLE MOUNTAIN FLAT-TOPPED MASSIF (Left to Center) -->
-    <path
-      d="M28 96
-         L40 63
-         L45 61
-         L56 61
-         L74 60
-         L100 55
-         L118 50
-         L130 44
-         L136 47
-         L145 58
-         L156 94
-         Z"
-      fill="url(#mountainMassif)"
-      stroke="url(#richGold)"
-      stroke-width="1.5"
-      stroke-linejoin="round"
-    />
-
-    <!-- Horizontal Sandstone Strata Lines across the Main Table Face -->
-    <path
-      d="M42 67 L125 56
-         M39 73 L121 63
-         M36 79 L116 71"
-      stroke="#F6C85F"
-      stroke-width="0.8"
-      opacity="0.58"
-      stroke-linecap="round"
-    />
-    <!-- Vertical Gorge Clefts (Platteklip Gorge & Western Buttress) -->
-    <path
-      d="M55 61 L50 84
-         M79 59 L75 86
-         M105 54 L100 80"
-      stroke="#D49122"
-      stroke-width="0.7"
-      opacity="0.48"
-    />
-
-    <!-- 3. SUNLIT KLOOF CORNER PYRAMIDAL CLIFF & LOWER SLOPES (Center Foreground) -->
-    <!-- Illuminated Golden Facet of Kloof Corner -->
-    <path
-      d="M130 44
-         L138 52
-         L147 55
-         L155 68
-         L137 71
-         L117 69
-         L124 54
-         Z"
-      fill="url(#sunlitCliff)"
-      stroke="#FFF5B8"
-      stroke-width="1.05"
-      stroke-linejoin="round"
-    />
-    <!-- Prominent Stepped Sandstone Ledges on Kloof Corner (matching photo) -->
-    <path
-      d="M125 52 L140 54
-         M122 58 L147 60
-         M119 64 L152 66
-         M117 69 L155 71"
-      stroke="#FFF8C9"
-      stroke-width="1.1"
-      stroke-linecap="round"
-    />
-
-    <!-- Sweeping Mountain Apron / Slopes descending from Kloof Corner -->
-    <path
-      d="M28 96
-         C55 90, 88 79, 117 69
-         L137 71
-         L155 68
-         C170 78, 188 88, 212 96
-         L212 108
-         L28 108 Z"
-      fill="#0B1D16"
-      stroke="url(#goldSheen)"
-      stroke-width="0.95"
-    />
-    <!-- Sunlit Ridge Lines sweeping down from Kloof Corner -->
-    <path
-      d="M135 71 C128 82, 115 92, 98 101
-         M146 70 C156 81, 170 90, 188 98"
-      stroke="url(#richGold)"
-      stroke-width="0.9"
-      opacity="0.68"
-      fill="none"
-    />
-
-    <!-- 4. WINDING TAFELBERG / CHAPMAN'S PEAK SCENIC ROAD (From the photo's lower slope) -->
-    <path
-      d="M68 82
-         C77 85, 90 87, 94 91
-         C97 93, 83 95, 86 98
-         C89 101, 110 102, 128 105"
-      stroke="#FFF5B8"
-      stroke-width="1.4"
-      stroke-linecap="round"
-      fill="none"
-      opacity="0.92"
-    />
-
-    <!-- 5. ATLANTIC OCEAN HORIZON & CAPE COASTAL WAVES -->
-    <path
-      d="M28 105 Q74 100 120 105 T212 105"
-      stroke="url(#richGold)"
-      stroke-width="1.1"
-      fill="none"
-      opacity="0.62"
-    />
-  </g>
-
-  <!-- ===================================================================== -->
-  <!-- RUGBY BALL EMBLEM (Tilted Dynamic Prolate Ellipsoid with Gold Seams)   -->
-  <!-- ===================================================================== -->
-  <g transform="translate(122, 141) rotate(-17)" filter="url(#dropShadow)">
-    <!-- Outer Rugby Ball Silhouette -->
-    <path
-      d="M-47 0 C-33 -22.5, 33 -22.5, 47 0 C33 22.5, -33 22.5, -47 0 Z"
-      fill="url(#rugbyFill)"
-      stroke="url(#richGold)"
-      stroke-width="2.2"
-    />
-    <!-- Top & Bottom Curved Rugby Panel Seams -->
-    <path
-      d="M-41 -2.5 C-20 -13.5, 20 -13.5, 41 -2.5"
-      stroke="url(#goldSheen)"
-      stroke-width="1.3"
-      fill="none"
-    />
-    <path
-      d="M-41 2.5 C-20 13.5, 20 13.5, 41 2.5"
-      stroke="url(#goldSheen)"
-      stroke-width="1.3"
-      fill="none"
-    />
-    <!-- Center Seam & Traditional Rugby Lacing -->
-    <line x1="-31" y1="0" x2="31" y2="0" stroke="url(#richGold)" stroke-width="1.1" opacity="0.9" />
-    <line x1="-14" y1="-4" x2="-14" y2="4" stroke="#FFF5B8" stroke-width="1.4" stroke-linecap="round" />
-    <line x1="-7" y1="-4.5" x2="-7" y2="4.5" stroke="#FFF5B8" stroke-width="1.4" stroke-linecap="round" />
-    <line x1="0" y1="-4.8" x2="0" y2="4.8" stroke="#FFF5B8" stroke-width="1.4" stroke-linecap="round" />
-    <line x1="7" y1="-4.5" x2="7" y2="4.5" stroke="#FFF5B8" stroke-width="1.4" stroke-linecap="round" />
-    <line x1="14" y1="-4" x2="14" y2="4" stroke="#FFF5B8" stroke-width="1.4" stroke-linecap="round" />
-  </g>
-
-  <!-- ===================================================================== -->
-  <!-- ICONIC LEAPING SOUTH AFRICAN SPRINGBOK (24K Gold Dynamic Silhouette)  -->
-  <!-- Positioned so Table Mountain & Kloof Corner rise clearly above it     -->
-  <!-- ===================================================================== -->
-  <g transform="translate(2, 14)" filter="url(#dropShadow)">
-    <!-- Sweeping Golden Speed Arc Beneath the Leap -->
-    <path
-      d="M44 148 Q114 106 192 125"
-      stroke="url(#richGold)"
-      stroke-width="1.7"
-      stroke-linecap="round"
-      fill="none"
-      opacity="0.78"
-    />
-
-    <!-- Signature Curved Springbok Horns (Swept Back) -->
-    <path
-      d="M164 68 C154 55, 140 51, 129 56 C139 56, 149 61, 157 71 Z"
-      fill="url(#richGold)"
-    />
-    <path
-      d="M168 70 C160 58, 148 55, 138 58 C146 58, 155 63, 162 72 Z"
-      fill="#FFF5B8"
-      opacity="0.92"
-    />
-
-    <!-- Pert Ears -->
-    <path
-      d="M160 72 C154 65, 147 65, 144 69 C149 70, 154 72, 158 75 Z"
-      fill="url(#springbokGold)"
-    />
-
-    <!-- Main Sculpted Leaping Springbok Body -->
-    <path
-      d="M166 69
-         C172 69, 179 73, 184 78
-         C186 80, 185 83, 181 84
-         C176 85, 170 84, 165 82
-         C161 88, 156 96, 151 104
-         C160 106, 172 110, 183 117
-         C189 121, 193 125, 195 129
-         C196 131, 193 133, 190 131
-         C184 126, 175 120, 164 116
-         C158 114, 151 112, 145 111
-         C152 117, 159 124, 162 131
-         C163 134, 160 135, 158 133
-         C153 127, 146 120, 137 114
-         C124 114, 108 116, 94 122
-         C81 128, 69 138, 56 150
-         C50 156, 44 160, 39 163
-         C36 164, 35 161, 38 158
-         C45 150, 55 140, 66 130
-         C56 135, 46 140, 37 146
-         C34 148, 32 145, 35 142
-         C46 132, 60 123, 74 115
-         C70 112, 66 109, 62 107
-         C67 105, 73 106, 78 109
-         C92 100, 110 95, 128 94
-         C138 93, 146 87, 153 79
-         C157 74, 161 70, 166 69 Z"
-      fill="url(#springbokGold)"
-      stroke="#1A1105"
-      stroke-width="0.9"
-      stroke-linejoin="round"
-    />
-
-    <!-- Characteristic Springbok Flank Stripe & Muscle Highlight -->
-    <path
-      d="M86 113 C104 105, 124 102, 142 104"
-      stroke="#5C3404"
-      stroke-width="2"
-      stroke-linecap="round"
-      fill="none"
-    />
-    <path
-      d="M84 116 C103 108, 123 105, 140 107"
-      stroke="#FFF8C9"
-      stroke-width="1.3"
-      stroke-linecap="round"
-      fill="none"
-    />
-    <!-- Eye Detail -->
-    <circle cx="171" cy="76" r="1.4" fill="#0B0906" />
-  </g>
-
-  <!-- ===================================================================== -->
-  <!-- LOWER CHAMPIONSHIP RIBBON & FIVE HOSPITALITY STARS                    -->
-  <!-- ===================================================================== -->
-  <path
-    d="M64 178 Q120 168 176 178 L171 189 Q120 179 69 189 Z"
-    fill="url(#richGold)"
+  <!-- Outer Royal Gold Medallion Ring -->
+  <circle
+    cx="120"
+    cy="120"
+    r="105"
+    fill="url(#obsidianCore)"
+    stroke="url(#goldPrimary)"
+    stroke-width="4"
+    filter="url(#luxuryShadow)"
   />
-  <text
-    x="120"
-    y="181"
-    text-anchor="middle"
-    fill="#050506"
-    font-family="Arial, Helvetica, sans-serif"
-    font-size="6.4"
-    font-weight="900"
-    letter-spacing="2.2"
-  >
-    SOUTH AFRICA
-  </text>
 
-  <!-- 5 Five-Point Luxury Stars -->
-  <g fill="url(#richGold)">
-    <polygon points="120,190 122,195 127.5,195 123,198.2 124.8,203.5 120,200.2 115.2,203.5 117,198.2 112.5,195 118,195" />
-    <polygon points="103,188 104.6,192 109,192 105.5,194.5 106.8,198.8 103,196.2 99.2,198.8 100.5,194.5 97,192 101.4,192" />
-    <polygon points="137,188 138.6,192 143,192 139.5,194.5 140.8,198.8 137,196.2 133.2,198.8 134.5,194.5 131,192 135.4,192" />
-    <polygon points="88,184 89.3,187.2 92.8,187.2 90,189.2 91,192.5 88,190.5 85,192.5 86,189.2 83.2,187.2 86.7,187.2" />
-    <polygon points="152,184 153.3,187.2 156.8,187.2 154,189.2 155,192.5 152,190.5 149,192.5 150,189.2 147.2,187.2 150.7,187.2" />
+  <!-- Inner Precision Degree Ring -->
+  <circle
+    cx="120"
+    cy="120"
+    r="94"
+    stroke="url(#goldPrimary)"
+    stroke-width="1.2"
+    stroke-dasharray="3 4.5"
+    opacity="0.8"
+  />
+  <circle
+    cx="120"
+    cy="120"
+    r="86"
+    stroke="url(#goldPrimary)"
+    stroke-width="1.8"
+    opacity="0.92"
+  />
+
+  <!-- ===================================================================== -->
+  <!-- LUXURY GLOBE MERIDIANS & SCENIC HORIZON ARCS                          -->
+  <!-- ===================================================================== -->
+  <g stroke="url(#goldPrimary)" opacity="0.45" fill="none">
+    <!-- Latitude Arcs -->
+    <path d="M42 92 Q120 112 198 92" stroke-width="1.3" />
+    <path d="M42 148 Q120 128 198 148" stroke-width="1.3" />
+    <!-- Longitude Ellipses -->
+    <ellipse cx="120" cy="120" rx="46" ry="85" stroke-width="1.3" />
+    <ellipse cx="120" cy="120" rx="72" ry="85" stroke-width="1" opacity="0.65" />
   </g>
 
-  <!-- 4 Cardinal Compass Diamonds -->
-  <polygon points="120,8 123.5,16 120,24 116.5,16" fill="url(#richGold)" />
-  <polygon points="120,232 123.5,224 120,216 116.5,224" fill="url(#richGold)" />
-  <polygon points="8,120 16,116.5 24,120 16,123.5" fill="url(#richGold)" />
-  <polygon points="232,120 224,116.5 216,120 224,123.5" fill="url(#richGold)" />
+  <!-- Sweeping Luxury Travel Flight / Road Orbit Swoosh -->
+  <path
+    d="M32 146 C68 182, 162 174, 208 94"
+    stroke="url(#goldBrightFacet)"
+    stroke-width="3.2"
+    stroke-linecap="round"
+    fill="none"
+    filter="url(#luxuryShadow)"
+  />
+  <path
+    d="M38 154 C76 186, 158 180, 202 108"
+    stroke="url(#goldPrimary)"
+    stroke-width="1.4"
+    stroke-linecap="round"
+    fill="none"
+    opacity="0.75"
+  />
+
+  <!-- ===================================================================== -->
+  <!-- 3D BEVELLED 8-POINTED ROYAL COMPASS ROSE (Icon of Luxury Travel)      -->
+  <!-- ===================================================================== -->
+  <!-- Diagonal Secondary Points (NW, NE, SE, SW) -->
+  <g filter="url(#luxuryShadow)">
+    <!-- NE Point -->
+    <polygon points="120,120 134,120 174,66" fill="url(#goldBrightFacet)" />
+    <polygon points="120,120 120,106 174,66" fill="url(#goldDarkFacet)" />
+    <!-- SE Point -->
+    <polygon points="120,120 120,134 174,174" fill="url(#goldBrightFacet)" />
+    <polygon points="120,120 134,120 174,174" fill="url(#goldDarkFacet)" />
+    <!-- SW Point -->
+    <polygon points="120,120 106,120 66,174" fill="url(#goldBrightFacet)" />
+    <polygon points="120,120 120,134 66,174" fill="url(#goldDarkFacet)" />
+    <!-- NW Point -->
+    <polygon points="120,120 120,106 66,66" fill="url(#goldBrightFacet)" />
+    <polygon points="120,120 106,120 66,66" fill="url(#goldDarkFacet)" />
+  </g>
+
+  <!-- Primary Cardinal Points (N, E, S, W) — Bold & Crisp at Any Size -->
+  <g filter="url(#luxuryShadow)">
+    <!-- NORTH Point -->
+    <polygon points="120,18 120,120 101,101" fill="url(#goldBrightFacet)" />
+    <polygon points="120,18 139,101 120,120" fill="url(#goldDarkFacet)" />
+
+    <!-- SOUTH Point -->
+    <polygon points="120,222 139,139 120,120" fill="url(#goldBrightFacet)" />
+    <polygon points="120,222 120,120 101,139" fill="url(#goldDarkFacet)" />
+
+    <!-- EAST Point -->
+    <polygon points="222,120 120,120 139,101" fill="url(#goldBrightFacet)" />
+    <polygon points="222,120 139,139 120,120" fill="url(#goldDarkFacet)" />
+
+    <!-- WEST Point -->
+    <polygon points="18,120 101,139 120,120" fill="url(#goldBrightFacet)" />
+    <polygon points="18,120 120,120 101,101" fill="url(#goldDarkFacet)" />
+  </g>
+
+  <!-- Center Jewel Hub -->
+  <circle cx="120" cy="120" r="14" fill="#070708" stroke="url(#goldPrimary)" stroke-width="2.8" />
+  <circle cx="120" cy="120" r="6" fill="url(#goldBrightFacet)" />
 </svg>
