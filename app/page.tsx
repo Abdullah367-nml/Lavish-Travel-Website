@@ -27,9 +27,20 @@ import { FeaturedAfrica } from "@/components/home/featured-africa";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  alternates: { canonical: "/" },
+  title: "Lavish Travels & Tours | South African Luxury Private Tours & Chauffeur Services",
   description:
-    "Luxury airport transfers, chauffeur hire, self‑drive car rental and tailored tours across South Africa. Fixed transfer pricing, professional drivers, 24/7 operations.",
+    "Official website for Lavish Travels & Tours (Pvt) Ltd. Private guided tours in Cape Town, Garden Route, safari transfers, and luxury chauffeur services across South Africa.",
+  alternates: { canonical: "/" },
+  keywords: [
+    "Lavish Travels",
+    "Lavish Travels & Tours",
+    "Lavish Travels SA",
+    "Cape Town Private Tours",
+    "South Africa Luxury Tours",
+    "Cape Town Airport Transfers",
+    "Garden Route Tours",
+    "Private Chauffeur Cape Town",
+  ],
 };
 
 export default async function HomePage() {
