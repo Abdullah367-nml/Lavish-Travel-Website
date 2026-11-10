@@ -31,11 +31,13 @@ import { staticAttractions } from "./attractions";
  */
 
 let warned = false;
+let supabaseUnavailableUntil = 0;
+
 function warnOnce(context: string, error: unknown) {
   if (!warned) {
     warned = true;
     console.warn(
-      `[catalogue] Supabase unavailable (${context}). Falling back to empty results. ` +
+      `[catalogue] Supabase unavailable (${context}). Falling back to static catalogue. ` +
         `Check NEXT_PUBLIC_SUPABASE_URL / NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local.`,
       error instanceof Error ? error.message : error,
     );
@@ -43,28 +45,31 @@ function warnOnce(context: string, error: unknown) {
 }
 
 /**
- * Wraps a Supabase query promise with a 3-second timeout.
- * Without this, a DNS failure (ENOTFOUND) causes every page to hang for
- * 30-45 seconds before Node's TCP timeout fires.
+ * Wraps a Supabase query promise with an 800ms timeout and a 5-minute
+ * circuit breaker so an unreachable database never slows down page navigation.
  */
 async function withTimeout<T>(
   queryPromise: Promise<T>,
   context: string,
   fallback: T,
 ): Promise<T> {
+  if (Date.now() < supabaseUnavailableUntil) {
+    return fallback;
+  }
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 3000);
+  const timer = setTimeout(() => controller.abort(), 800);
   try {
     const result = await Promise.race([
       queryPromise,
       new Promise<never>((_, reject) =>
         controller.signal.addEventListener("abort", () =>
-          reject(new Error(`Supabase query timed out after 3 s (${context})`)),
+          reject(new Error(`Supabase query timed out after 800ms (${context})`)),
         ),
       ),
     ]);
     return result;
   } catch (err) {
+    supabaseUnavailableUntil = Date.now() + 5 * 60 * 1000;
     warnOnce(context, err);
     return fallback;
   } finally {

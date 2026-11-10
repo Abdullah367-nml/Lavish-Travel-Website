@@ -64,7 +64,7 @@ export function TourFilters({
       startTransition(() => {
         // scroll: false keeps the viewport where it is, so changing a filter
         // does not throw the user back to the top of the page.
-        router.push(query ? `${pathname}?${query}` : pathname, {
+        router.replace(query ? `${pathname}?${query}` : pathname, {
           scroll: false,
         });
       });
@@ -74,7 +74,7 @@ export function TourFilters({
 
   const clearAll = useCallback(() => {
     startTransition(() => {
-      router.push(pathname, { scroll: false });
+      router.replace(pathname, { scroll: false });
     });
     setSheetOpen(false);
   }, [pathname, router]);
