@@ -38,6 +38,7 @@ const FOOTER_COLUMNS: { heading: string; links: { label: string; href: string }[
       { label: "Blog", href: "/blog" },
       { label: "FAQ", href: "/faq" },
       { label: "Contact", href: "/contact" },
+      { label: "Admin Portal", href: "/admin" },
     ],
   },
   {
@@ -105,8 +106,14 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground">
+        <div className="mt-12 flex flex-col justify-between gap-3 border-t border-border pt-6 text-xs leading-relaxed text-muted-foreground sm:flex-row sm:items-center">
           <p>Lavish Travels &amp; Tours (Pvt) Ltd</p>
+          <Link
+            href="/admin"
+            className="text-xs font-medium text-muted-foreground/80 transition-colors hover:text-accent"
+          >
+            Staff &amp; Admin Portal &rarr;
+          </Link>
         </div>
       </div>
     </footer>
