@@ -1,32 +1,42 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo } from "react";
+import { useMemo, type ReactNode } from "react";
 import { useSearchParams } from "next/navigation";
 import { SearchX } from "lucide-react";
-import type { TourPackage } from "@/lib/types";
+import type { TourCategory } from "@/lib/types";
 import { parseTourSearchParams } from "@/lib/tour-search";
-import { TourCard } from "@/components/shared/tour-card";
 import { TourFilters } from "@/components/tours/tour-filters";
 import { Button } from "@/components/ui/button";
 
+export type PreRenderedTourItem = {
+  id: string;
+  destinationSlug: string;
+  category: TourCategory;
+  durationDays: number;
+  priceFromZar: number;
+  groupMin: number;
+  groupMax: number;
+  card: ReactNode;
+};
+
 export function ToursCatalogue({
-  tours,
+  items,
   destinations,
 }: {
-  tours: TourPackage[];
+  items: PreRenderedTourItem[];
   destinations: { slug: string; name: string }[];
 }) {
   const searchParams = useSearchParams();
 
-  const filteredTours = useMemo(() => {
+  const filteredItems = useMemo(() => {
     const rawParams: Record<string, string> = {};
     searchParams.forEach((value, key) => {
       rawParams[key] = value;
     });
     const filters = parseTourSearchParams(rawParams);
 
-    return tours
+    return items
       .filter((t) =>
         filters.destination ? t.destinationSlug === filters.destination : true,
       )
@@ -45,22 +55,20 @@ export function ToursCatalogue({
           ? t.groupMin <= filters.groupSize && t.groupMax >= filters.groupSize
           : true,
       );
-  }, [searchParams, tours]);
+  }, [searchParams, items]);
 
   return (
     <div className="mt-12 flex flex-col gap-8 lg:flex-row lg:gap-12">
       <TourFilters
         destinations={destinations}
-        resultCount={filteredTours.length}
+        resultCount={filteredItems.length}
       />
 
       <div className="min-w-0 flex-1">
-        {filteredTours.length > 0 ? (
+        {filteredItems.length > 0 ? (
           <ul className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            {filteredTours.map((tour) => (
-              <li key={tour.id}>
-                <TourCard tour={tour} />
-              </li>
+            {filteredItems.map((item) => (
+              <li key={item.id}>{item.card}</li>
             ))}
           </ul>
         ) : (

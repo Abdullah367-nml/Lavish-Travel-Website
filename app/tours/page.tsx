@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { getDestinations, getTours } from "@/lib/data";
 import { TourCard } from "@/components/shared/tour-card";
-import { ToursCatalogue } from "@/components/tours/tours-catalogue";
+import {
+  ToursCatalogue,
+  type PreRenderedTourItem,
+} from "@/components/tours/tours-catalogue";
 import { Breadcrumbs } from "@/components/shared/breadcrumbs";
 import { JsonLd } from "@/components/shared/json-ld";
 import { breadcrumbJsonLd, itemListJsonLd } from "@/lib/structured-data";
@@ -23,6 +26,17 @@ export default async function ToursPage() {
   const destinationOptions = destinations.map((d) => ({
     slug: d.slug,
     name: d.name,
+  }));
+
+  const items: PreRenderedTourItem[] = tours.map((tour) => ({
+    id: tour.id,
+    destinationSlug: tour.destinationSlug,
+    category: tour.category,
+    durationDays: tour.durationDays,
+    priceFromZar: tour.priceFromZar,
+    groupMin: tour.groupMin,
+    groupMax: tour.groupMax,
+    card: <TourCard tour={tour} />,
   }));
 
   const crumbs = [
@@ -66,17 +80,15 @@ export default async function ToursPage() {
               <div aria-hidden className="hidden lg:block lg:w-64 lg:shrink-0" />
               <div className="min-w-0 flex-1">
                 <ul className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                  {tours.map((tour) => (
-                    <li key={tour.id}>
-                      <TourCard tour={tour} />
-                    </li>
+                  {items.map((item) => (
+                    <li key={item.id}>{item.card}</li>
                   ))}
                 </ul>
               </div>
             </div>
           }
         >
-          <ToursCatalogue tours={tours} destinations={destinationOptions} />
+          <ToursCatalogue items={items} destinations={destinationOptions} />
         </Suspense>
       </div>
     </>
