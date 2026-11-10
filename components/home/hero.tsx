@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ShieldCheck, Clock, Users, Compass } from "lucide-react";
+import { ArrowRight, ShieldCheck, Clock, Users, Compass, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 /**
@@ -68,7 +68,7 @@ export function Hero() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div className="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
           <Button asChild size="lg" className="shadow-[0_0_25px_rgba(255,149,0,0.35)]">
             <Link href="/tours">
               Explore Cape Town Tours
@@ -77,6 +77,17 @@ export function Hero() {
           </Button>
           <Button asChild variant="outline" size="lg" className="border-accent/40 hover:bg-accent/10">
             <Link href="/enquire">Plan a Custom Journey</Link>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="border-amber-400/60 bg-black/55 text-amber-300 backdrop-blur-md hover:bg-amber-400/15 hover:text-amber-200"
+          >
+            <a href="#reviews">
+              <Star aria-hidden className="mr-1.5 size-4 fill-amber-400 text-amber-400" />
+              Rate Our Service
+            </a>
           </Button>
         </div>
 

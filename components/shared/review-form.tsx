@@ -70,7 +70,7 @@ export function InteractiveReviewSection({
   subheading?: string;
 }) {
   const [reviews, setReviews] = useState<(Review & { serviceLabel?: string })[]>(initialReviews);
-  const [showForm, setShowForm] = useState(false);
+  const [showForm, setShowForm] = useState(true);
   const [rating, setRating] = useState<number>(5);
   const [hoverRating, setHoverRating] = useState<number>(0);
   const [serviceOrTour, setServiceOrTour] = useState(
@@ -169,14 +169,30 @@ export function InteractiveReviewSection({
           </div>
         </div>
 
-        <Button
-          type="button"
-          onClick={() => setShowForm((v) => !v)}
-          className="shrink-0"
-        >
-          <MessageSquarePlus className="mr-2 size-4" />
-          {showForm ? "Close Rating Form" : "Rate a Tour or Service"}
-        </Button>
+        <div className="flex flex-wrap items-center gap-3 shrink-0">
+          <Button
+            asChild
+            variant="outline"
+            className="border-amber-400/50 text-amber-300 hover:bg-amber-400/15"
+          >
+            <a
+              href="https://www.google.com/search?q=Lavish+Travels+%26+Tours+(Pvt)+Ltd"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Star className="mr-2 size-4 fill-amber-400 text-amber-400" />
+              Rate Us on Google
+            </a>
+          </Button>
+          <Button
+            type="button"
+            onClick={() => setShowForm((v) => !v)}
+            className="shrink-0"
+          >
+            <MessageSquarePlus className="mr-2 size-4" />
+            {showForm ? "Hide Rating Form" : "Rate a Tour or Service"}
+          </Button>
+        </div>
       </div>
 
       {/* Service Rating Breakdown Pills */}
