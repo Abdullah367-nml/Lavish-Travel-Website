@@ -9,14 +9,15 @@ import { reviews as staticReviews } from "@/lib/data/reviews";
 import type { Review, TravellerType } from "@/lib/types";
 
 const createReviewSchema = z.object({
-  authorName: z.string().trim().min(2, "Please enter your name").max(80),
-  authorCountry: z.string().trim().min(2, "Please enter your country").max(60),
-  serviceOrTour: z.string().trim().min(2, "Please select a tour or service").max(140),
+  authorName: z.string().trim().min(1, "Please enter your name").max(80),
+  authorCountry: z.string().trim().max(60).optional().default("Verified Guest"),
+  serviceOrTour: z.string().trim().max(140).optional().default("Lavish Travels & Tours"),
   rating: z.number().int().min(1).max(5),
-  title: z.string().trim().min(3, "Please enter a short headline").max(120),
-  body: z.string().trim().min(10, "Please share at least a sentence about your experience").max(1200),
+  title: z.string().trim().max(120).optional().default(""),
+  body: z.string().trim().max(1200).optional().default(""),
   travellerType: z
     .enum(["couple", "family", "solo", "business", "group"])
+    .optional()
     .default("couple"),
   packageId: z.string().optional().nullable(),
 });
@@ -127,14 +128,27 @@ export async function POST(request: Request) {
 
     const {
       authorName,
-      authorCountry,
-      serviceOrTour,
+      authorCountry: rawCountry,
+      serviceOrTour: rawService,
       rating,
-      title,
-      body,
+      title: rawTitle,
+      body: rawBody,
       travellerType,
       packageId,
     } = parsed.data;
+
+    const authorCountry = rawCountry || "Verified Guest";
+    const serviceOrTour = rawService || "Lavish Travels & Tours";
+    const body =
+      rawBody ||
+      "Highly recommended! Exceptional service and experience with Lavish Travels & Tours.";
+    const title =
+      rawTitle ||
+      (rawBody
+        ? rawBody.length > 48
+          ? `${rawBody.slice(0, 48).trim()}…`
+          : rawBody
+        : `${rating}-Star Experience`);
 
     const newReview: Review & { serviceLabel?: string } = {
       id: crypto.randomUUID(),
