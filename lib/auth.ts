@@ -1,19 +1,19 @@
 import "server-only";
+import { cache } from "react";
 import { notFound, redirect } from "next/navigation";
 import type { User } from "@supabase/supabase-js";
 import type { Profile } from "@/lib/types";
 import { supabaseServer } from "@/lib/supabase/server";
 
 /**
- * Server-side auth helpers.
+ * Server-side auth helpers with per-request memoization.
  *
- * Always `getUser()`, never `getSession()`, when deciding whether someone is
- * allowed to do something. `getSession()` reads the cookie and trusts it;
- * `getUser()` verifies the token against Supabase. On a server that
- * difference is the whole point — a cookie is user-controlled input.
+ * Wrapped with React `cache` so layout and nested page/action calls share
+ * a single validated user and profile per HTTP request rather than firing
+ * multiple redundant round-trips to Supabase.
  */
 
-export async function getUser(): Promise<User | null> {
+export const getUser = cache(async (): Promise<User | null> => {
   try {
     const supabase = await supabaseServer();
     const { data, error } = await supabase.auth.getUser();
@@ -25,9 +25,9 @@ export async function getUser(): Promise<User | null> {
     // whole site down.
     return null;
   }
-}
+});
 
-export async function getProfile(): Promise<Profile | null> {
+export const getProfile = cache(async (): Promise<Profile | null> => {
   const user = await getUser();
   if (!user) return null;
 
@@ -53,7 +53,7 @@ export async function getProfile(): Promise<Profile | null> {
   } catch {
     return null;
   }
-}
+});
 
 /**
  * Gate a customer page. Sends the visitor to sign in and remembers where they
@@ -69,22 +69,23 @@ export async function requireUser(returnTo: string): Promise<User> {
 /**
  * Gate an admin page.
  *
- * A non-admin who reaches an admin URL gets notFound(), not a redirect to a
- * login page — there is no reason to confirm that /admin/bookings exists to
- * someone who may be probing. The database policies deny them the data
- * regardless; this just avoids the disclosure.
+ * Uses the memoized profile. If no user session exists, redirects to login.
+ * If user exists but is not an admin, returns notFound() (404) to avoid disclosure.
  */
-export async function requireAdmin(): Promise<Profile> {
-  const user = await getUser();
-  if (!user) {
-    redirect("/admin/login?next=/admin");
-  }
+export const requireAdmin = cache(async (): Promise<Profile> => {
   const profile = await getProfile();
-  if (!profile || profile.role !== "admin") notFound();
+  if (!profile) {
+    const user = await getUser();
+    if (!user) {
+      redirect("/admin/login?next=/admin");
+    }
+    notFound();
+  }
+  if (profile.role !== "admin") notFound();
   return profile;
-}
+});
 
-export async function isAdmin(): Promise<boolean> {
+export const isAdmin = cache(async (): Promise<boolean> => {
   const profile = await getProfile();
   return profile?.role === "admin";
-}
+});

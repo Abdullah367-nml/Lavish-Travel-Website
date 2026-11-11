@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { createServerClient } from "@supabase/ssr";
-import { createClient } from "@supabase/supabase-js";
+import { createClient, type SupabaseClient } from "@supabase/supabase-js";
 
 /**
  * Supabase clients for server-side use.
@@ -67,29 +67,41 @@ export async function supabaseServer() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let publicClient: SupabaseClient<any, "public", any> | null = null;
+
 /**
  * Anonymous client for public catalogue reads — no cookies, no session.
- * Used by pages that are cached/prerendered, where reading cookies would
- * force them to render dynamically for no benefit.
+ * Reused across requests for persistent HTTP/2 connection pooling.
  */
 export function supabasePublic() {
-  return createClient(
-    requireEnv("NEXT_PUBLIC_SUPABASE_URL"),
-    requireEnv("NEXT_PUBLIC_SUPABASE_ANON_KEY"),
-    { auth: { persistSession: false } },
-  );
+  if (!publicClient) {
+    publicClient = createClient(
+      requireEnv("NEXT_PUBLIC_SUPABASE_URL"),
+      requireEnv("NEXT_PUBLIC_SUPABASE_ANON_KEY"),
+      { auth: { persistSession: false } },
+    );
+  }
+  return publicClient;
 }
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let adminClient: SupabaseClient<any, "public", any> | null = null;
 
 /**
  * Service-role client. Bypasses every RLS policy.
+ * Reused across requests for persistent connection pooling and fast execution.
  *
  * NEVER import this into a Client Component, and never call it on a route
  * that has not already checked that the caller is an admin.
  */
 export function supabaseAdmin() {
-  return createClient(
-    requireEnv("NEXT_PUBLIC_SUPABASE_URL"),
-    requireEnv("SUPABASE_SERVICE_ROLE_KEY"),
-    { auth: { persistSession: false, autoRefreshToken: false } },
-  );
+  if (!adminClient) {
+    adminClient = createClient(
+      requireEnv("NEXT_PUBLIC_SUPABASE_URL"),
+      requireEnv("SUPABASE_SERVICE_ROLE_KEY"),
+      { auth: { persistSession: false, autoRefreshToken: false } },
+    );
+  }
+  return adminClient;
 }

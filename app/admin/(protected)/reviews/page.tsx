@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getAdminReviews } from "@/lib/admin";
 import { formatDate } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
@@ -82,9 +83,10 @@ export default async function AdminReviewsPage({ searchParams }: Props) {
           Status:
         </span>
         {["all", "pending", "approved", "hidden"].map((s) => (
-          <a
+          <Link
             key={s}
             href={`/admin/reviews?status=${s}`}
+            prefetch={true}
             className={`rounded px-3 py-1 text-caption uppercase tracking-wider transition-colors ${
               statusFilter === s
                 ? "bg-accent text-accent-foreground font-medium"
@@ -92,7 +94,7 @@ export default async function AdminReviewsPage({ searchParams }: Props) {
             }`}
           >
             {s}
-          </a>
+          </Link>
         ))}
       </div>
 
