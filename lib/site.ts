@@ -67,8 +67,11 @@ export const site = {
     "Mozambique",
   ],
 
-  // TODO: replace with the real profiles, or remove entries that do not exist.
-  socials: [] as string[],
+  // --- Social Profiles (used by schema.org structured data and footer) -----
+  facebook: "https://www.facebook.com/profile.php?id=61596704120699",
+  socials: [
+    "https://www.facebook.com/profile.php?id=61596704120699",
+  ] as string[],
 } as const;
 
 /** Absolute URL for a site-relative path — required by structured data. */
